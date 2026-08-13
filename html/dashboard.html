@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live">
 <title>模擬交易儀錶板 — V7</title>
 <style>
 * {box-sizing:border-box;margin:0;padding:0}
@@ -38,7 +38,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
 </head>
 <body>
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="clock">更新: 14:06:58</span>
+<div class="header"><span id="clock">更新: 14:51:57</span>
 </div>
 <div class="summary">
   <div class="metric"><div class="val">63</div><div class="lbl">總交易</div></div>
@@ -51,7 +51,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
-      <tr><td>加權指數</td><td style="color:#e74c3c;font-weight:bold">46,021.48</td><td style="color:#e74c3c">+503.41</td><td style="color:#e74c3c">+1.11%</td><td>H=46,216 L=45,677</td><td style="color:#e74c3c;font-weight:bold">🔴 多</td></tr><tr><td>台指近</td><td colspan="5" style="color:#666">— 連線失敗 (期交所 MIS 免費源)</td></tr>
+      <tr><td>加權指數</td><td colspan="5" style="text-align:center;color:#666">— 無報價 (開盤後顯示)</td></tr><tr><td>台指近</td><td colspan="5" style="color:#666">— 連線失敗 (期交所 MIS 免費源)</td></tr>
     </table>
   </div>
   <div class="card">
@@ -129,7 +129,24 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <h2>國際快訊 (金十) <span style="font-size:11px;color:#888">— 關鍵字 ⚠️: 伊朗/川普/原油/戰爭/制裁/非農/財報…</span></h2>
     <table>
       <tr><th>時間</th><th>快訊</th></tr>
-      <tr><td style='white-space:nowrap'>13:55:13</td><td style='max-width:560px;' title='马士基：业绩增长得益于海运货运量和即期运费的上升，且受到强劲市场需求的支持。'>马士基：业绩增长得益于海运货运量和即期运费的上升，且受到强劲市场需求的支持。</td></tr><tr><td style='white-space:nowrap'>13:54:54</td><td style='max-width:560px;' title='马士基：第二季度营收为157.57亿美元，市场预期的138.68亿美元。'>马士基：第二季度营收为157.57亿美元，市场预期的138.68亿美元。</td></tr><tr><td style='white-space:nowrap'>13:54:34</td><td style='max-width:560px;' title='【国内金饰克价上涨9-13元不等】今日国内黄金饰品价格对比显示，国内多家品牌足金饰品价格较昨日上涨约9-13元不等，价格在1335-1340元/克之间。'>【国内金饰克价上涨9-13元不等】今日国内黄金饰品价格对比显示，国内多家品牌足金饰品价格较昨日上涨约9-13元不等，价格在1335-1340元/克之间。</td></tr><tr><td style='white-space:nowrap'>13:54:29</td><td style='max-width:560px;' title='马士基：必须继续投资关键贸易基础设施并扩大规模。'>马士基：必须继续投资关键贸易基础设施并扩大规模。</td></tr><tr><td style='white-space:nowrap'>13:54:06</td><td style='max-width:560px;' title='马士基：从港口到内陆运输，我们看到多个地区正面临日益严重的拥堵和运输中断。'>马士基：从港口到内陆运输，我们看到多个地区正面临日益严重的拥堵和运输中断。</td></tr><tr><td style='white-space:nowrap'>13:53:48</td><td style='max-width:560px;' title='马士基：现预计2026年自由现金流将转正（此前预计至少为-15亿美元）。'>马士基：现预计2026年自由现金流将转正（此前预计至少为-15亿美元）。</td></tr><tr><td style='white-space:nowrap'>13:53:06</td><td style='max-width:560px;' title='马士基：上调2026财年业绩指引，预计2026年核心EBITDA为105亿至125亿美元（此前预期为80亿至100亿美元）；预计2026年基本息税前利润（EBIT）为45亿至65亿美元（此前预期为20亿至40亿美元）。'>马士基：上调2026财年业绩指引，预计2026年核心EBITDA为105亿至125亿美元（此前预期为80亿至100亿美元）；预计2026年基本息税前利润（EBIT）为45亿至65亿美元（此前预期为20亿至40亿美元）。</td></tr><tr><td style='white-space:nowrap'>13:51:37</td><td style='max-width:560px;' title='市场消息：印度汽车行业协会（SIAM）表示，该文件系误发给政府后已被撤回，原本仅供内部讨论和审核之用。'>市场消息：印度汽车行业协会（SIAM）表示，该文件系误发给政府后已被撤回，原本仅供内部讨论和审核之用。</td></tr>
+      <tr><td style='white-space:nowrap'>14:39:44</td><td style='max-width:560px;' title='联想首席执行官：将根据供应情况灵活调整消费电子产品价格。'>联想首席执行官：将根据供应情况灵活调整消费电子产品价格。</td></tr><tr><td style='white-space:nowrap'>14:39:10</td><td style='max-width:560px;' title='联想首席执行官：与英伟达(NVDA.O)合作，计划在今年晚些时候推出搭载RTX芯片的AI PC。'>联想首席执行官：与英伟达(NVDA.O)合作，计划在今年晚些时候推出搭载RTX芯片的AI PC。</td></tr><tr><td style='white-space:nowrap'>14:38:51</td><td style='max-width:560px;' title='【济南：上半年金融业增加值775.3亿元同比增长14.7%】金十数据8月13日讯，从济南市新闻办举行的新闻发布会上获悉，上半年，济南市金融业增加值完成775.3亿元，同比增长14.7%，占地区生产总值的比重为11%。截至6月末，济南市社会融资规模余额5.63万亿元，同比增长8.6%；本外币存款余额3.4万亿元，同比增长5.8%；本外币贷款余额3.67万亿元，同比增长8%。'>【济南：上半年金融业增加值775.3亿元同比增长14.7%】金十数据8月13日讯，从济南市新闻办举行的新闻发布会上获悉，上半年，济南市金融业增加值完成775.3亿元，同比增长14.7%，占地区生产总值的比重为11%。截至6月末，济南市社会融资规模余额5.63万亿元，同比增长8.6%；本外币存款余额3.4万亿元，同比增长5.8%；本外币贷款余额3.67万亿元，同比增长8%。</td></tr><tr><td style='white-space:nowrap'>14:35:22</td><td style='max-width:560px;' title='【北京产权交易所赋能存量资产高效盘活】金十数据8月13日讯，北京产权交易所通过着力构建“平台+投行”交易生态圈，聚焦各类经营主体存量资产盘活重点方向与核心领域，在赋能资产高效盘活、实现资产价值最大化等方面取得丰硕成果。据了解，为更好地服务各类经营主体盘活存量资产，北京产权交易所于近期上线“存量资产盘活服务专栏”。专栏聚焦存量资产高效盘活与价值提升，服务范围涵盖股权债权转让、房产土地转让出租、机器设备及闲废资产处置等14个领域。依托多年专业的服务能力和丰富的服务经验，北京产权交易所可为存量资产盘活'>【北京产权交易所赋能存量资产高效盘活】金十数据8月13日讯，北京产权交易所通过着力构建“平台+投行”交易生态圈，聚焦各类经营主体存量资产盘活重点方向与核心领域，在赋能资产高效盘活、实现资产价值最大化等方面取得丰硕成果。据了解，为更好地服务各类经营主体盘活存量资产，北京产权交易所于近期上线“存量资产盘活服务专栏”。专栏聚焦存量资产高效盘活与价值提升，服务范围涵盖股权债权转让、房产土地转让出租、...</td></tr><tr><td style='white-space:nowrap'>14:35:14</td><td style='max-width:560px;' title='A股教育板块持续走低，传智教育触及跌停，学大教育、昂立教育、华图山鼎、凯文教育、中公教育跟跌。'>A股教育板块持续走低，传智教育触及跌停，学大教育、昂立教育、华图山鼎、凯文教育、中公教育跟跌。</td></tr><tr><td style='white-space:nowrap'>14:33:58</td><td style='max-width:560px;' title='纽约期银日内下跌1.00%，现报64.87美元/盎司。'>纽约期银日内下跌1.00%，现报64.87美元/盎司。</td></tr><tr><td style='white-space:nowrap'>14:33:44</td><td style='max-width:560px;' title='美元：
+1. 美国7月CPI通胀数据温和，债市料9月加息概率降至约四成。
+2. 美国7月预算赤字激增，创2021年3月以来新高。
+其他：
+1. 英国二季度经济维持增长，但下半年料将转弱。
+2. 越南央行警告称770亿美元资金缺口可能危及金融稳定。
+3. 墨西哥在贸易谈判中寻求降低美国对北美汽车的关税。
+4. 韩国加大房地产融资支持并放宽青年购房限制，以稳定楼市。
+5. 新西兰联储调查：新西兰第三季度一年期平均通胀预期为2.6%。
+6. 日本政府据悉支持央行更快加息，下一步行动可能在9月或10月。'>美元：
+1. 美国7月CPI通胀数据温和，债市料9月加息概率降至约四成。
+2. 美国7月预算赤字激增，创2021年3月以来新高。
+其他：
+1. 英国二季度经济维持增长，但下半年料将转弱。
+2. 越南央行警告称770亿美元资金缺口可能危及金融稳定。
+3. 墨西哥在贸易谈判中寻求降低美国对北美汽车的关税。
+4. 韩国加大房地产融资支持并放宽青年购房限制，以稳定楼市。
+5. 新西兰联储调查：新西兰...</td></tr><tr><td style='white-space:nowrap'>14:32:53</td><td style='max-width:560px;' title='A股三大股指午后回落，沪指、深证成指转跌，创业板指涨幅收窄至0.58%。'>A股三大股指午后回落，沪指、深证成指转跌，创业板指涨幅收窄至0.58%。</td></tr>
     </table>
   </div>
   <div class="card full">
