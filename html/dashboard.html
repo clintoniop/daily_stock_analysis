@@ -38,13 +38,13 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
 </head>
 <body>
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="clock">更新: 09:02:08</span>
+<div class="header"><span id="clock">更新: 09:02:11</span>
 </div>
 <div class="summary">
   <div class="metric"><div class="val">3</div><div class="lbl">總交易</div></div>
-  <div class="metric"><div class="val">1</div><div class="lbl">獲利</div></div>
-  <div class="metric"><div class="val">33.3%</div><div class="lbl">勝率</div></div>
-  <div class="metric"><div class="val">3</div><div class="lbl">持倉</div></div>
+  <div class="metric"><div class="val">2</div><div class="lbl">獲利</div></div>
+  <div class="metric"><div class="val">66.7%</div><div class="lbl">勝率</div></div>
+  <div class="metric"><div class="val">2</div><div class="lbl">持倉</div></div>
 </div>
 <div class="grid">
   <div class="card">
@@ -159,17 +159,13 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <table>
       <tr><th>標的</th><th>代號</th><th>方向</th><th>進場</th><th>現價</th><th>浮動</th></tr>
       <tr>
-  <td>華邦電</td><td>2344</td>
-  <td style="color:#2ecc71">short</td>
-  <td>183</td><td>177.0</td><td>+6</td>
-</tr><tr>
   <td>景碩</td><td>3189</td>
   <td style="color:#2ecc71">short</td>
-  <td>868</td><td>858.0</td><td>+10</td>
+  <td>858</td><td>858.0</td><td>0</td>
 </tr><tr>
-  <td>南電</td><td>8046</td>
-  <td style="color:#2ecc71">short</td>
-  <td>1280</td><td>1265.0</td><td>+15</td>
+  <td>漢唐</td><td>2404</td>
+  <td style="color:#e74c3c">long</td>
+  <td>1135</td><td>1135.0</td><td>0</td>
 </tr>
     </table>
   </div>
@@ -179,23 +175,23 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <table style="table-layout:fixed">
       <tr><th data-pg="pg-rule" data-ps="10">日期</th><th data-pg="pg-rule" data-ps="10">進場</th><th data-pg="pg-rule" data-ps="10">出場</th><th data-pg="pg-rule" data-ps="10">標的</th><th data-pg="pg-rule" data-ps="10">做多/做空</th><th data-pg="pg-rule" data-ps="10">價格</th><th data-pg="pg-rule" data-ps="10">損益</th><th data-pg="pg-rule" data-ps="10">原因</th></tr>
       <tr class="pg-rule">
-  <td>2026-08-13</td><td>09:00:21</td><td>09:01:09</td><td>臻鼎-KY(4958)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>494→494 - 3.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-4,752</td>
-  <td>移动止盈</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-13</td><td>09:00:10</td><td>09:01:35</td><td>國巨(2327)</td>
+  <td>2026-08-13</td><td>09:00:14</td><td>09:00:24</td><td>國巨(2327)</td>
   <td style="color:#2ecc71">做空</td>
   <td>629→602 - 2.0張</td>
   <td style="color:#e74c3c;font-weight:bold">50,089</td>
   <td>获利</td>
 </tr><tr class="pg-rule">
-  <td>2026-08-13</td><td>09:00:10</td><td>09:01:35</td><td>漢唐(2404)</td>
+  <td>2026-08-13</td><td>09:00:14</td><td>09:00:24</td><td>漢唐(2404)</td>
   <td style="color:#e74c3c">做多</td>
   <td>1170→1132 - 1.0張</td>
   <td style="color:#2ecc71;font-weight:bold">-41,666</td>
   <td>停损</td>
+</tr><tr class="pg-rule">
+  <td>2026-08-13</td><td>09:00:07</td><td>09:01:21</td><td>華邦電(2344)</td>
+  <td style="color:#2ecc71">做空</td>
+  <td>183→182 - 8.0張</td>
+  <td style="color:#e74c3c;font-weight:bold">7,329</td>
+  <td>移动止盈</td>
 </tr>
     </table>
     <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-rule-prev" onclick="pgPrev('.pg-rule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-rule-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-rule-next" onclick="pgNext('.pg-rule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
@@ -214,7 +210,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   </div>
   <div class="card full">
     <h2>事件日誌</h2>
-    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5"><div class="pg-log">[13:25:02] CLOSE 漢唐(2404) PnL=-8,680 [收盤平倉]</div><div class="pg-log">[09:00:08] OPEN 華邦電(2344) short @183</div><div class="pg-log">[09:00:05] 🕘 開盤強制單 華邦電(2344) short @183 x8.0張 停損187 停利163 (+20點, gap:short)</div><div class="pg-log">[09:00:10] OPEN 國巨(2327) short @629</div><div class="pg-log">[09:00:09] 🕘 開盤強制單 國巨(2327) short @629 x2.0張 停損642 停利609 (+20點, gap:short)</div><div class="pg-log">[09:00:10] OPEN 漢唐(2404) long @1170</div><div class="pg-log">[09:00:09] 🕘 開盤強制單 漢唐(2404) long @1170 x1.0張 停損1147 停利1188 (+1.5%有把握, gap:long)</div><div class="pg-log">[09:00:21] OPEN 景碩(3189) short @868</div><div class="pg-log">[09:00:15] 🕘 開盤強制單 景碩(3189) short @868 x1.0張 停損885 停利848 (+20點, tech(37%))</div><div class="pg-log">[09:00:21] OPEN 臻鼎-KY(4958) long @494</div><div class="pg-log">[09:00:15] 🕘 開盤強制單 臻鼎-KY(4958) long @494 x3.0張 停損484 停利514 (+20點, gap:long)</div><div class="pg-log">[09:00:41] OPEN 南電(8046) short @1280</div><div class="pg-log">[09:00:28] 🕘 開盤強制單 南電(8046) short @1280 x1.0張 停損1306 停利1260 (+20點, gap:short)</div><div class="pg-log">[09:01:09] CLOSE 臻鼎-KY(4958) PnL=-4,752 [移动止盈]</div><div class="pg-log">[09:01:35] CLOSE 國巨(2327) PnL=50,089 [获利]</div><div class="pg-log">[09:01:35] CLOSE 漢唐(2404) PnL=-41,666 [停损]</div></div>
+    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5"><div class="pg-log">[13:25:02] CLOSE 漢唐(2404) PnL=-8,680 [收盤平倉]</div><div class="pg-log">[09:00:07] OPEN 華邦電(2344) short @183</div><div class="pg-log">[09:00:05] 🕘 開盤強制單 華邦電(2344) short @183 x8.0張 停損187 停利163 (+20點, gap:short)</div><div class="pg-log">[09:00:14] OPEN 國巨(2327) short @629</div><div class="pg-log">[09:00:10] 🕘 開盤強制單 國巨(2327) short @629 x2.0張 停損642 停利609 (+20點, gap:short)</div><div class="pg-log">[09:00:14] OPEN 漢唐(2404) long @1170</div><div class="pg-log">[09:00:10] 🕘 開盤強制單 漢唐(2404) long @1170 x1.0張 停損1147 停利1188 (+1.5%有把握, gap:long)</div><div class="pg-log">[09:00:24] CLOSE 國巨(2327) PnL=50,089 [获利]</div><div class="pg-log">[09:00:24] CLOSE 漢唐(2404) PnL=-41,666 [停损]</div><div class="pg-log">[09:00:24] OPEN 景碩(3189) short @858</div><div class="pg-log">[09:00:15] 🕘 開盤強制單 景碩(3189) short @858 x1.0張 停損875 停利838 (+20點, tech(37%))</div><div class="pg-log">[09:01:21] CLOSE 華邦電(2344) PnL=7,329 [移动止盈]</div><div class="pg-log">[09:02:01] OPEN 漢唐(2404) long @1135</div></div>
     <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-log-prev" onclick="pgPrev('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-log-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-log-next" onclick="pgNext('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
   </div>
 </div>
