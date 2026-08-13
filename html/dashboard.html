@@ -38,13 +38,13 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
 </head>
 <body>
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="clock">更新: 09:19:16</span>
+<div class="header"><span id="clock">更新: 09:19:20</span>
 </div>
 <div class="summary">
   <div class="metric"><div class="val">3</div><div class="lbl">總交易</div></div>
   <div class="metric"><div class="val">2</div><div class="lbl">獲利</div></div>
   <div class="metric"><div class="val">66.7%</div><div class="lbl">勝率</div></div>
-  <div class="metric"><div class="val">2</div><div class="lbl">持倉</div></div>
+  <div class="metric"><div class="val">4</div><div class="lbl">持倉</div></div>
 </div>
 <div class="grid">
   <div class="card">
@@ -166,6 +166,14 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   <td>漢唐</td><td>2404</td>
   <td style="color:#e74c3c">long</td>
   <td>1135</td><td>1135.0</td><td>0</td>
+</tr><tr>
+  <td>國巨</td><td>2327</td>
+  <td style="color:#e74c3c">long</td>
+  <td>602</td><td>602.0</td><td>0</td>
+</tr><tr>
+  <td>華邦電</td><td>2344</td>
+  <td style="color:#e74c3c">long</td>
+  <td>177</td><td>177.0</td><td>0</td>
 </tr>
     </table>
   </div>
@@ -210,8 +218,8 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   </div>
   <div class="card full">
     <h2>事件日誌</h2>
-    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5">—</div>
-    
+    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5"><div class="pg-log">[09:06:10] OPEN 國巨(2327) long @602</div><div class="pg-log">[09:06:05] 🕘 開盤強制單 國巨(2327) long @602 x2.0張 停損590 停利622 (+20點, tech(37%))</div><div class="pg-log">[09:06:10] OPEN 華邦電(2344) long @177</div><div class="pg-log">[09:06:05] 🕘 開盤強制單 華邦電(2344) long @177 x8.0張 停損173 停利197 (+20點, tech(18%))</div></div>
+    <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-log-prev" onclick="pgPrev('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-log-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-log-next" onclick="pgNext('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
   </div>
 </div>
 <script>
