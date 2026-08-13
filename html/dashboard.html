@@ -38,7 +38,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
 </head>
 <body>
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="clock">更新: 14:51:58</span>
+<div class="header"><span id="clock">更新: 22:33:09</span>
 </div>
 <div class="summary">
   <div class="metric"><div class="val">63</div><div class="lbl">總交易</div></div>
@@ -51,7 +51,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
-      <tr><td>加權指數</td><td colspan="5" style="text-align:center;color:#666">— 無報價 (開盤後顯示)</td></tr><tr><td>台指近</td><td colspan="5" style="color:#666">— 連線失敗 (期交所 MIS 免費源)</td></tr>
+      <tr><td>加權指數</td><td colspan="5" style="text-align:center;color:#666">— 無報價 (開盤後顯示)</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#e74c3c;font-weight:bold">46,540</td><td style="color:#e74c3c">+515</td><td style="color:#e74c3c">+1.12%</td><td>H=46,541 L=45,878</td><td style="color:#e74c3c;font-weight:bold">🔴 多</td></tr>
     </table>
   </div>
   <div class="card">
@@ -110,12 +110,17 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   <td data-l="今日高低">H=662 L=626<br>買662/賣-</td>
   <td data-l="大單" style="color:#666" title="">—</td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 ⛔動能擋 <span style="font-size:10px;color:#888">4.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">⛔動能擋: 缺口覆寫: 做空 (原做多) 5日動能↑ KD同向</td>
 </tr><tr>
+  <td data-l="標的" style="white-space:nowrap">南電</td><td data-l="代號">8046</td>
+  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1215.0 <span style="font-size:10px">-3.95%</span></td>
+  <td data-l="今日高低">H=1300 L=1215<br>買1215/賣1220</td>
+  <td data-l="大單" style="color:#666" title="">—</td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 -4.0% 缺口 <span style="font-size:10px;color:#888">7.4/57%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做空 (原做多) 趨勢↑ 5日動能↑ KD同向</td>
+</tr><tr>
   <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#ffd93d">漢唐</span></td><td data-l="代號">2404</td>
   <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1130.0 <span style="font-size:10px">-0.44%</span></td>
   <td data-l="今日高低">H=1175 L=1115<br>買1125/賣1130</td>
   <td data-l="大單" style="color:#666" title="">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
 </tr><tr>
-  <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#ffd93d">藥華藥</span></td><td data-l="代號">6446</td>
+  <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#ffd93d">藥華藥</span> <span style="font-size:11px"><span style="color:#2ecc71;font-weight:bold">⚠️最快2日處置</span></span></td><td data-l="代號">6446</td>
   <td data-l="現價" style="color:#e74c3c;font-weight:bold;background:rgba(231,76,60,.18)">▲ 1445.0 <span style="font-size:10px">+0.35%</span></td>
   <td data-l="今日高低">H=1510 L=1430<br>買1445/賣1450</td>
   <td data-l="大單" style="color:#666" title="">—</td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
@@ -135,11 +140,6 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   <td data-l="今日高低">H=1045 L=976<br>買999/賣1000</td>
   <td data-l="大單" style="color:#666" title="處置股不可當沖, 不監控大單">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 +0.0% 缺口 <span style="font-size:10px;color:#888">4.2/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做多 (原做多) 趨勢↑ KD同向</td>
 </tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#e74c3c;font-weight:bold">南電</span><br><span style="font-size:11px;color:#e74c3c">處置至08/18·最快3日後再次處置</span></td><td data-l="代號">8046</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1215.0 <span style="font-size:10px">-3.95%</span></td>
-  <td data-l="今日高低">H=1300 L=1215<br>買1215/賣1220</td>
-  <td data-l="大單" style="color:#666" title="處置股不可當沖, 不監控大單">—</td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 -4.0% 缺口 <span style="font-size:10px;color:#888">7.4/57%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做空 (原做多) 趨勢↑ 5日動能↑ KD同向</td>
-</tr><tr>
   <td data-l="標的" style="white-space:nowrap"><span style="color:#e74c3c;font-weight:bold">台燿</span><br><span style="font-size:11px;color:#e74c3c">處置至08/14·最快5日後再次處置</span></td><td data-l="代號">6274</td>
   <td data-l="現價" style="color:#f1c40f;font-weight:bold;background:transparent"> 1600.0 <span style="font-size:10px">+0.00%</span></td>
   <td data-l="今日高低">H=1675 L=1525<br>買1595/賣1600</td>
@@ -151,24 +151,7 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <h2>國際快訊 (金十) <span style="font-size:11px;color:#888">— 關鍵字 ⚠️: 伊朗/川普/原油/戰爭/制裁/非農/財報…</span></h2>
     <table>
       <tr><th>時間</th><th>快訊</th></tr>
-      <tr><td style='white-space:nowrap'>14:39:44</td><td style='max-width:560px;' title='联想首席执行官：将根据供应情况灵活调整消费电子产品价格。'>联想首席执行官：将根据供应情况灵活调整消费电子产品价格。</td></tr><tr><td style='white-space:nowrap'>14:39:10</td><td style='max-width:560px;' title='联想首席执行官：与英伟达(NVDA.O)合作，计划在今年晚些时候推出搭载RTX芯片的AI PC。'>联想首席执行官：与英伟达(NVDA.O)合作，计划在今年晚些时候推出搭载RTX芯片的AI PC。</td></tr><tr><td style='white-space:nowrap'>14:38:51</td><td style='max-width:560px;' title='【济南：上半年金融业增加值775.3亿元同比增长14.7%】金十数据8月13日讯，从济南市新闻办举行的新闻发布会上获悉，上半年，济南市金融业增加值完成775.3亿元，同比增长14.7%，占地区生产总值的比重为11%。截至6月末，济南市社会融资规模余额5.63万亿元，同比增长8.6%；本外币存款余额3.4万亿元，同比增长5.8%；本外币贷款余额3.67万亿元，同比增长8%。'>【济南：上半年金融业增加值775.3亿元同比增长14.7%】金十数据8月13日讯，从济南市新闻办举行的新闻发布会上获悉，上半年，济南市金融业增加值完成775.3亿元，同比增长14.7%，占地区生产总值的比重为11%。截至6月末，济南市社会融资规模余额5.63万亿元，同比增长8.6%；本外币存款余额3.4万亿元，同比增长5.8%；本外币贷款余额3.67万亿元，同比增长8%。</td></tr><tr><td style='white-space:nowrap'>14:35:22</td><td style='max-width:560px;' title='【北京产权交易所赋能存量资产高效盘活】金十数据8月13日讯，北京产权交易所通过着力构建“平台+投行”交易生态圈，聚焦各类经营主体存量资产盘活重点方向与核心领域，在赋能资产高效盘活、实现资产价值最大化等方面取得丰硕成果。据了解，为更好地服务各类经营主体盘活存量资产，北京产权交易所于近期上线“存量资产盘活服务专栏”。专栏聚焦存量资产高效盘活与价值提升，服务范围涵盖股权债权转让、房产土地转让出租、机器设备及闲废资产处置等14个领域。依托多年专业的服务能力和丰富的服务经验，北京产权交易所可为存量资产盘活'>【北京产权交易所赋能存量资产高效盘活】金十数据8月13日讯，北京产权交易所通过着力构建“平台+投行”交易生态圈，聚焦各类经营主体存量资产盘活重点方向与核心领域，在赋能资产高效盘活、实现资产价值最大化等方面取得丰硕成果。据了解，为更好地服务各类经营主体盘活存量资产，北京产权交易所于近期上线“存量资产盘活服务专栏”。专栏聚焦存量资产高效盘活与价值提升，服务范围涵盖股权债权转让、房产土地转让出租、...</td></tr><tr><td style='white-space:nowrap'>14:35:14</td><td style='max-width:560px;' title='A股教育板块持续走低，传智教育触及跌停，学大教育、昂立教育、华图山鼎、凯文教育、中公教育跟跌。'>A股教育板块持续走低，传智教育触及跌停，学大教育、昂立教育、华图山鼎、凯文教育、中公教育跟跌。</td></tr><tr><td style='white-space:nowrap'>14:33:58</td><td style='max-width:560px;' title='纽约期银日内下跌1.00%，现报64.87美元/盎司。'>纽约期银日内下跌1.00%，现报64.87美元/盎司。</td></tr><tr><td style='white-space:nowrap'>14:33:44</td><td style='max-width:560px;' title='美元：
-1. 美国7月CPI通胀数据温和，债市料9月加息概率降至约四成。
-2. 美国7月预算赤字激增，创2021年3月以来新高。
-其他：
-1. 英国二季度经济维持增长，但下半年料将转弱。
-2. 越南央行警告称770亿美元资金缺口可能危及金融稳定。
-3. 墨西哥在贸易谈判中寻求降低美国对北美汽车的关税。
-4. 韩国加大房地产融资支持并放宽青年购房限制，以稳定楼市。
-5. 新西兰联储调查：新西兰第三季度一年期平均通胀预期为2.6%。
-6. 日本政府据悉支持央行更快加息，下一步行动可能在9月或10月。'>美元：
-1. 美国7月CPI通胀数据温和，债市料9月加息概率降至约四成。
-2. 美国7月预算赤字激增，创2021年3月以来新高。
-其他：
-1. 英国二季度经济维持增长，但下半年料将转弱。
-2. 越南央行警告称770亿美元资金缺口可能危及金融稳定。
-3. 墨西哥在贸易谈判中寻求降低美国对北美汽车的关税。
-4. 韩国加大房地产融资支持并放宽青年购房限制，以稳定楼市。
-5. 新西兰联储调查：新西兰...</td></tr><tr><td style='white-space:nowrap'>14:32:53</td><td style='max-width:560px;' title='A股三大股指午后回落，沪指、深证成指转跌，创业板指涨幅收窄至0.58%。'>A股三大股指午后回落，沪指、深证成指转跌，创业板指涨幅收窄至0.58%。</td></tr>
+      <tr><td style='white-space:nowrap'>22:20:13</td><td style='max-width:560px;' title='DATABRICKS以1900亿美元估值完成50亿美元融资。'>DATABRICKS以1900亿美元估值完成50亿美元融资。</td></tr><tr><td style='white-space:nowrap'>22:20:00</td><td style='max-width:560px;' title='美国至8月7日当周EIA天然气库存将于十分钟后公布。'>美国至8月7日当周EIA天然气库存将于十分钟后公布。</td></tr><tr><td style='white-space:nowrap'>22:19:54</td><td style='max-width:560px;' title='市场消息：意大利科莱费罗的KNDS工厂发生爆炸。'>市场消息：意大利科莱费罗的KNDS工厂发生爆炸。</td></tr><tr><td style='white-space:nowrap'>22:17:42</td><td style='max-width:560px;' title='美国得州州长：微软将遵守数据中心标准。'>美国得州州长：微软将遵守数据中心标准。</td></tr><tr><td style='white-space:nowrap'>22:15:02</td><td style='max-width:560px;' title='市场不再完全定价美联储今年加息。'>市场不再完全定价美联储今年加息。</td></tr><tr><td style='white-space:nowrap'>22:12:46</td><td style='max-width:560px;' title='Databricks完成50亿美元融资，估值达1900亿美元。'>Databricks完成50亿美元融资，估值达1900亿美元。</td></tr><tr><td style='white-space:nowrap'>22:11:12</td><td style='max-width:560px;' title='据港交所文件：湖南军信环保股份有限公司向港交所提交上市申请书。'>据港交所文件：湖南军信环保股份有限公司向港交所提交上市申请书。</td></tr><tr><td style='white-space:nowrap'>22:07:50</td><td style='max-width:560px;' title='原油系期货主力合约集体下跌，SC原油下跌1.80%，现报544.2元/桶。低硫燃料油（LU）下跌1.85%，现报4560元/吨。燃油下跌0.72%，现报3741元/吨。沥青下跌0.02%，现报4310元/吨。'><span style='color:#ffd93d'>⚠️ 原油</span> 原油系期货主力合约集体下跌，SC原油下跌1.80%，现报544.2元/桶。低硫燃料油（LU）下跌1.85%，现报4560元/吨。燃油下跌0.72%，现报3741元/吨。沥青下跌0.02%，现报4310元/吨。</td></tr>
     </table>
   </div>
   <div class="card full">
