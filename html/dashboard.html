@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live">
 <title>模擬交易儀錶板 — V7</title>
 <style>
 * {box-sizing:border-box;margin:0;padding:0}
@@ -60,12 +60,12 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
 </head>
 <body>
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="clock">更新: 13:32:00</span>
+<div class="header"><span id="clock">更新: 08:50:46</span>
 </div>
 <div class="summary">
-  <div class="metric"><div class="val">23</div><div class="lbl">總交易</div></div>
-  <div class="metric"><div class="val">10</div><div class="lbl">獲利</div></div>
-  <div class="metric"><div class="val">43.5%</div><div class="lbl">勝率</div></div>
+  <div class="metric"><div class="val">0</div><div class="lbl">總交易</div></div>
+  <div class="metric"><div class="val">0</div><div class="lbl">獲利</div></div>
+  <div class="metric"><div class="val">0.0%</div><div class="lbl">勝率</div></div>
   <div class="metric"><div class="val">0</div><div class="lbl">持倉</div></div>
 </div>
 <div class="grid">
@@ -73,11 +73,11 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
-      <tr><td>加權指數</td><td style="color:#2ecc71;font-weight:bold">45,257.64</td><td style="color:#2ecc71">-599.63</td><td style="color:#2ecc71">-1.31%</td><td>H=46,064 L=45,225</td><td style="color:#2ecc71;font-weight:bold">🟢 空</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#2ecc71;font-weight:bold">45,120</td><td style="color:#2ecc71">-747</td><td style="color:#2ecc71">-1.63%</td><td>H=45,977 L=45,111 量=50,269口</td><td style="color:#2ecc71;font-weight:bold">🟢 空</td></tr>
+      <tr><td>加權指數</td><td colspan="5" style="text-align:center;color:#666">— 無報價 (開盤後顯示)</td></tr><tr><td>台指近</td><td colspan="5" style="color:#666">— 券商源連線中 (08:50-13:32 強制 API)</td></tr>
     </table>
-    <div style="color:#e94560;font-size:14px;margin:12px 0 6px;border-bottom:1px solid #0f3460;padding-bottom:4px">大盤預測 <span style="font-size:11px;color:#888">(08:30 LOG 2026-08-18)</span></div>
-    <div style="font-size:12px;line-height:1.7;color:#ccc">操作提醒**：<br>1. ⚠️ 本日為盤中補跑（09:25）：早盤已完成「開 +65 → 衝 +207（46,064）→ 殺回平盤」三段走勢，**開高走低如期兌現**，勿在急拉時追高、急殺時追空<br>2. **45,800 為今日多空分界**：站穩偏多續攻 46,064~46,140；跌破 45,800 下看 45,765~45,700<br>3. ⚠️ </div>
-    <div style="color:#e94560;font-size:14px;margin:12px 0 6px;border-bottom:1px solid #0f3460;padding-bottom:4px">今日當沖推薦 <span style="font-size:11px;color:#888">(2026-08-18)</span></div>
+    <div style="color:#e94560;font-size:14px;margin:12px 0 6px;border-bottom:1px solid #0f3460;padding-bottom:4px">大盤預測 <span style="font-size:11px;color:#888">(08:30 LOG 2026-08-17)</span></div>
+    <div style="font-size:12px;line-height:1.7"><span style="color:#ccc">操作提醒**：</span><br><span style="color:#ccc">1. ⚠️ 本日為盤中補跑（09:25）：早盤已完成「開 +65 → 衝 +207（46,064）→ 殺回平盤」三段走勢，**開高走低如期兌現**，勿在急拉時追高、急殺時追空</span><br><span style="color:#2ecc71">2. **45,800 為今日多空分界**：站穩偏多續攻 46,064~46,140；跌破 45,800 下看 45,765~45,700</span><br><span style="color:#2ecc71">3. ⚠️ 02:49 早跑版本美股/夜盤為未收盤快照，本版已全數更正（道瓊 -272.63、費半 +1.64%、夜盤 45,811 逆價差 -46 點）— 期貨弱於現貨，開高走低風險先前被低估</span><br><span style="color:#e74c3c">4. **3037 漲停隔日不追**（8/13 2327 漲停次日 -6% 教訓）：隔日沖高盛 +4,811/摩根大通 +3,586 張超大量，開盤衝高就是倒貨機會</span><br><span style="color:#ccc">5. **2344 記憶體主攻但內資倒貨**：外資 8/17 買 +37,880 張股價卻收黑，且隔日沖摩根大通 +5,875 張 → 低接高拋、不留倉過夜</span><br><span style="color:#ccc">6. **美債殖利率 19 年新高 + 油價 +3%**：若盤中傳出中東衝突升級消息，防急殺（金十快訊監控）；金融/高負債族群承壓</span><br><span style="color:#2ecc71">7. 昨日教訓：當沖三檔全被「先掃停損再達標」洗出 → 今日停損單給 10~15 點緩衝（如 6274 空單停損 1,640 非 1,625）</span><br><span style="color:#e74c3c">8. 當沖四鐵律：不追漲跌停、不玩尾盤、震盪日不操作、獲利用市價單出場（目標單日獲利 NT$2,000）</span><br>&nbsp;<br><span style="color:#ccc">*數據來源：TWSE STOCK_DAY/MI_5MINS_HIST/FMTQIK/T86 官方 API、Yahoo Finance chart API（美股 8/17 最終收盤、台股 5 分線）、UDN 期交所夜盤行情、金十快訊、stockwarden boards.json（處置 14 檔，監視池全數可當沖）、nightly_indicators/2026-08-18、broker_indicators.json（08:42）。個股現價為 Yahoo 5 分線（延遲 10~15 分），以實際盤面為準。*</span><br>&nbsp;</div>
+    <div style="color:#e94560;font-size:14px;margin:12px 0 6px;border-bottom:1px solid #0f3460;padding-bottom:4px">今日當沖推薦 <span style="font-size:11px;color:#888">(2026-08-17)</span></div>
     <table>
       <tr><th>#</th><th>標的</th><th>方向</th><th>買進區</th><th>目標</th><th>停損</th><th>理由</th></tr>
       <tr>
@@ -86,94 +86,83 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
   <td>1,485~1,500</td>
   <td>1,525</td>
   <td>1,470</td>
-  <td style="font-size:11px;color:#aaa"></td>
+  <td style="font-size:11px;color:#aaa">開盤直接突破 1,480 橫盤壓力、量能回溫，盤中高 1,515 證明動能；回踩</td>
 </tr><tr>
   <td>#2</td><td>6274 台燿</td>
   <td style="color:#2ecc71">做空</td>
   <td>1,595~1,615</td>
   <td>1,550</td>
   <td>1,640</td>
-  <td style="font-size:11px;color:#aaa"></td>
+  <td style="font-size:11px;color:#aaa">連續兩日開高走低（昨 1,695→1,600、今 1,620→1,570），處置</td>
 </tr><tr>
   <td>#3</td><td>8046 南電</td>
   <td style="color:#e74c3c">做多</td>
   <td>1,300~1,315</td>
   <td>1,350</td>
   <td>1,290</td>
-  <td style="font-size:11px;color:#aaa"></td>
+  <td style="font-size:11px;color:#aaa">投信買超＋主動 ETF 淨流入 +12.2 億、8/17 高 1,380 證明動</td>
 </tr>
     </table>
     <div style="font-size:10px;color:#888;margin-top:4px">出自每日分析; 僅供參考 — 遵守當沖四鐵律 (不追漲停/不玩尾盤/震盪不操作/獲利市價出場)</div>
   </div>
   <div class="card">
-    <h2>指標 <span style="font-size:11px;color:#888">(08:20 盤前更新 <span title="2026-08-18 08:42:38">2026-08-17</span>)</span></h2>
+    <h2>指標 <span style="font-size:11px;color:#888">(08:20 盤前更新 <span title="2026-08-19 08:22:28">2026-08-18</span>)</span></h2>
     <table style="table-layout:fixed">
       <tr><th style="width:24px">#</th><th style="width:118px;text-align:left">指標</th><th style="text-align:left">數值 (懸停看說明)</th></tr>
-      <tr><td style="padding:2px 6px;color:#888;font-size:11px">1</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">三大法人買賣超</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">外資及陸資(不含外資自營商) +454.5億</span>；<span style="color:#e74c3c;font-weight:bold;">外資自營商 +0.0億</span>；<span style="color:#2ecc71;font-weight:bold;">投信 -177.8億</span><br><span style="color:#e74c3c;font-weight:bold;">合計 +581.5億</span><br><span style="color:#888;">監視池前5:</span><br><span style="color:#e74c3c;font-weight:bold;">欣興+2086萬</span>；<span style="color:#e74c3c;font-weight:bold;">新唐+86萬</span>；<span style="color:#e74c3c;font-weight:bold;">漢唐+35萬</span>；<span style="color:#e74c3c;font-weight:bold;">景碩+31萬</span>；<span style="color:#e74c3c;font-weight:bold;">AES-KY+0萬</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">2</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">融資融券餘額增減</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">融資 -5萬張</span>；<span style="color:#2ecc71;font-weight:bold;">融券 -0萬張</span><br><span style="color:#888;">監視池:</span><br><span style="color:#e74c3c;font-weight:bold;">亞德客-KY 融資+16張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+0張</span><br><span style="color:#2ecc71;font-weight:bold;">國巨* 融資-179張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-66張</span><br><span style="color:#2ecc71;font-weight:bold;">華邦電 融資-5,663張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-59張</span><br><span style="color:#2ecc71;font-weight:bold;">漢唐 融資-42張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+4張</span><br><span style="color:#2ecc71;font-weight:bold;">欣興 融資-1,025張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+191張</span><br><span style="color:#2ecc71;font-weight:bold;">景碩 融資-286張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+4張</span><br><span style="color:#2ecc71;font-weight:bold;">新唐 融資-91張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+12張</span><br><span style="color:#e74c3c;font-weight:bold;">臻鼎-KY 融資+511張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+10張</span><br><span style="color:#2ecc71;font-weight:bold;">藥華藥 融資-5張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-11張</span><br><span style="color:#2ecc71;font-weight:bold;">AES-KY 融資-69張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-1張</span><br><span style="color:#e74c3c;font-weight:bold;">南電 融資+583張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-39張</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">3</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">漲跌家數比 (騰落)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#ccc;">漲 665</span>；<span style="color:#ccc;">跌 586 (平 127)</span><br><span style="color:#ccc;">騰落比 1.13 (上漲家數÷下跌家數) — 多空拉鋸</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">4</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">美元/新台幣匯率</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">31.835 (-0.015)</span><br><span style="color:#2ecc71;font-weight:bold;">台銀牌告參考 (Yahoo FX 免費源); 昨收 31.850</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">5</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">大戶異常</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">3037 欣興 [異常大買] 淨+229.4億</span><br><span style="color:#888;">全場重點:</span><br><span style="color:#e74c3c;font-weight:bold;">欣興 被買 229億</span>；<span style="color:#e74c3c;font-weight:bold;">南亞科 被買 62億</span><br><span style="color:#2ecc71;font-weight:bold;">力積電 被倒 53億</span>；<span style="color:#2ecc71;font-weight:bold;">旺宏 被倒 34億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">6</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">外資連續買超≥3天</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">AES-KY(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">欣興(5天)</span><br><span style="color:#e74c3c;font-weight:bold;">監視池 12 檔, FinMind T+1</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">7</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">投信連續買超≥3天</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#ccc;">無</span><br><span style="color:#e74c3c;font-weight:bold;">監視池 12 檔, FinMind T+1</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">8</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">ETF 同步加碼 (選5檔)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#ccc;">—</span><br><span style="color:#e74c3c;font-weight:bold;">多檔主動式 ETF 同步加碼的個股 (取 5 檔)。來源: 夜間指標主動 ETF 持股異動。</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">9</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">ETF 同步減碼 (選5檔)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#ccc;">—</span><br><span style="color:#2ecc71;font-weight:bold;">多檔主動式 ETF 同步減碼的個股 (取 5 檔)。來源: 夜間指標主動 ETF 持股異動。</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">10</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">淨流入 Top</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">3008 大立光 +19.0 億</span>；<span style="color:#e74c3c;font-weight:bold;">8046 南電 +12.8 億</span>；<span style="color:#e74c3c;font-weight:bold;">5274 信驊 +10.4 億</span>；<span style="color:#e74c3c;font-weight:bold;">3264 欣銓 +6.2 億</span>；<span style="color:#e74c3c;font-weight:bold;">1303 南亞 +6.0 億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">11</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">國際油價</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">WTI 82.4 (-1.04%) 前收 83.27</span>；<span style="color:#2ecc71;font-weight:bold;">52週 54.98~119.48</span>；<span style="color:#2ecc71;font-weight:bold;">布蘭特 88.77 (-0.24%) 前收 88.98</span>；<span style="color:#2ecc71;font-weight:bold;">52週 58.72~126.1</span></td></tr>
+      <tr><td style="padding:2px 6px;color:#888;font-size:11px">1</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">三大法人買賣超</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">外資及陸資(不含外資自營商) -119.9億</span>；<span style="color:#e74c3c;font-weight:bold;">外資自營商 +0.0億</span>；<span style="color:#e74c3c;font-weight:bold;">投信 +38.3億</span><br><span style="color:#2ecc71;font-weight:bold;">合計 -515.3億</span><br><span style="color:#888;">監視池前5:</span><br><span style="color:#e74c3c;font-weight:bold;">欣興+1043萬</span>；<span style="color:#e74c3c;font-weight:bold;">聯鈞+341萬</span>；<span style="color:#e74c3c;font-weight:bold;">富喬+299萬</span>；<span style="color:#e74c3c;font-weight:bold;">台燿+55萬</span>；<span style="color:#e74c3c;font-weight:bold;">藥華藥+45萬</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">2</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">融資融券餘額增減</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">融資 -5萬張</span>；<span style="color:#2ecc71;font-weight:bold;">融券 -1萬張</span><br><span style="color:#888;">監視池:</span><br><span style="color:#2ecc71;font-weight:bold;">亞德客-KY 融資-20張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+0張</span><br><span style="color:#2ecc71;font-weight:bold;">華邦電 融資-3,477張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-69張</span><br><span style="color:#2ecc71;font-weight:bold;">金像電 融資-527張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-132張</span><br><span style="color:#2ecc71;font-weight:bold;">漢唐 融資-26張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-5張</span><br><span style="color:#2ecc71;font-weight:bold;">欣興 融資-1,089張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+27張</span><br><span style="color:#2ecc71;font-weight:bold;">景碩 融資-259張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+25張</span><br><span style="color:#e74c3c;font-weight:bold;">聯鈞 融資+468張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+270張</span><br><span style="color:#e74c3c;font-weight:bold;">臻鼎-KY 融資+567張</span>；<span style="color:#e74c3c;font-weight:bold;">融券+47張</span><br><span style="color:#e74c3c;font-weight:bold;">藥華藥 融資+90張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-1張</span><br><span style="color:#2ecc71;font-weight:bold;">AES-KY 融資-168張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-3張</span><br><span style="color:#2ecc71;font-weight:bold;">南電 融資-372張</span>；<span style="color:#2ecc71;font-weight:bold;">融券-33張</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">3</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">漲跌家數比 (騰落)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#ccc;">漲 263</span>；<span style="color:#ccc;">跌 983 (平 132)</span><br><span style="color:#ccc;">騰落比 0.27 (上漲家數÷下跌家數) — 普跌</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">4</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">美元/新台幣匯率</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">31.883 (-0.015)</span><br><span style="color:#2ecc71;font-weight:bold;">台銀牌告參考 (Yahoo FX 免費源); 昨收 31.898</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">5</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">大戶異常</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">3450 聯鈞 [異常大買] 淨+19.7億</span><br><span style="color:#888;">全場重點:</span><br><span style="color:#e74c3c;font-weight:bold;">欣興 被買 119億</span>；<span style="color:#e74c3c;font-weight:bold;">健策 被買 57億</span><br><span style="color:#2ecc71;font-weight:bold;">台積電 被倒 65億</span>；<span style="color:#2ecc71;font-weight:bold;">聯發科 被倒 59億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">6</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">外資連續買超≥3天</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">欣興(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">聯發科(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">AES-KY(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">辛耘(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">沛爾生醫-創(6天)</span><br><span style="color:#ffffff;font-size:11px;font-weight:600">監視池 12 檔 + 股價&gt;300 88 檔, TWSE T86</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">7</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">投信連續買超≥3天</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">富世達(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">高力(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">和泰車(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">光聖(6天)</span>；<span style="color:#e74c3c;font-weight:bold;">南電(5天)</span><br><span style="color:#ffffff;font-size:11px;font-weight:600">監視池 12 檔 + 股價&gt;300 88 檔, TWSE T86</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">8</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">ETF 同步加碼 (選5檔)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">3653 健策 +16.5 億</span>；<span style="color:#e74c3c;font-weight:bold;">2301 光寶科 +6.6 億</span>；<span style="color:#e74c3c;font-weight:bold;">2059 川湖 +5.7 億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">9</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">ETF 同步減碼 (選5檔)</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#2ecc71;font-weight:bold;">6669 緯穎 -21.8 億</span>；<span style="color:#2ecc71;font-weight:bold;">3017 奇鋐 -15.7 億</span>；<span style="color:#2ecc71;font-weight:bold;">2454 聯發科 -7.8 億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">10</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">淨流入 Top</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">3653 健策 +16.5 億</span>；<span style="color:#e74c3c;font-weight:bold;">3081 聯亞 +14.3 億</span>；<span style="color:#e74c3c;font-weight:bold;">3008 大立光 +8.6 億</span>；<span style="color:#e74c3c;font-weight:bold;">8046 南電 +7.4 億</span>；<span style="color:#e74c3c;font-weight:bold;">2301 光寶科 +6.9 億</span></td></tr><tr><td style="padding:2px 6px;color:#888;font-size:11px">11</td><td style="padding:2px 6px;font-size:12px;white-space:nowrap">國際油價</td><td style="padding:2px 6px;font-size:11px;line-height:1.7"><span style="color:#e74c3c;font-weight:bold;">WTI 84.44 (+3.93%) 前收 81.25</span>；<span style="color:#e74c3c;font-weight:bold;">52週 54.98~119.48</span><br><span style="color:#e74c3c;font-weight:bold;">布蘭特 91.33 (+4.89%) 前收 87.07</span>；<span style="color:#e74c3c;font-weight:bold;">52週 58.72~126.1</span></td></tr>
     </table>
   </div>
   <div class="card">
-    <h2>即時報價 × 當前信號 <span style="font-size:11px;color:#f39c12;font-weight:bold">⭐指標券商08/18 南電(元大+150張)、國巨(美商高盛+414張/元大+363張)、台燿(元大+277張)、欣興(美商高盛+4811張/摩根大通+3586張)、亞德客-KY(台灣摩根士丹利+14張/元大+10張)、⚡隔日衝08/18 國巨(新加坡商瑞銀+924張/美商高盛+414張 等3家)、欣興(美商高盛+4811張/摩根大通+3586張 等6家)、華邦電(摩根大通+5875張/凱基-台北+372張)、臻鼎-KY(元大+1056張)、新唐(元大+373張/美商高盛+256張 等6家)</span></h2>
+    <h2>即時報價 × 當前信號 <span style="font-size:11px;font-weight:bold;display:block;line-height:1.6"><span style="color:#f39c12">🔥指標券商08/19 南電(元大+154張/台灣摩根士丹利+108張)、台燿(台灣摩根士丹利+314張/元大+174張)、欣興(美商高盛+1407張/台灣摩根士丹利+1380張)、亞德客-KY(台灣摩根士丹利+11張)、華邦電(摩根大通+12053張)</span><br><span style="color:#a55eea">⚡隔日衝08/19 台燿(元大+174張/摩根大通+160張 等5家)、欣興(美商高盛+1407張/新加坡商瑞銀+571張 等4家)、華邦電(摩根大通+12053張)、富喬(新加坡商瑞銀+2132張/摩根大通+233張 等3家)、聯鈞(摩根大通+1589張/新加坡商瑞銀+656張)</span></span></h2>
     <table class="qtable" style="table-layout:fixed">
       <thead><tr><th style="width:186px">標的</th><th style="width:64px">代號</th><th style="width:121px">現價 (漲跌%)</th><th style="width:117px">今日高低/買賣</th><th style="width:110px">大戶買賣力</th><th style="width:168px">方向 (分數/信心)</th><th style="width:171px">原因</th></tr></thead>
-      <tbody><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 新唐<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +373張 / 美商高盛 +256張 / 摩根大通 +72張 / 兆豐-復興 +24張 / 新加坡商瑞銀 +14張 / 港商野村 +9張">⚡隔日衝08/18</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +373張 / 美商高盛 +256張 / 摩根大通 +72張">🔥指標券商08/18</span></td><td data-l="代號">4919</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 118.0 <span style="font-size:10px">-5.98%</span></td>
-  <td data-l="今日高低">H=125 L=118<br>買118/賣118</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買0張/賣7,655張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -7,655</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:0%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 -6.0% 缺口 <span style="font-size:10px;color:#888">4.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做空 (原做多) 5日動能↑ KD同向</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 華邦電<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +5875張 / 凱基-台北 +372張">⚡隔日衝08/18</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +5875張 / 凱基-台北 +372張">🔥指標券商08/18</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">2344</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 176.5 <span style="font-size:10px">-2.75%</span></td>
-  <td data-l="今日高低">H=192 L=176<br>買176/賣177</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買29,382張/賣36,797張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -7,415</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:44%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 -2.8% 缺口 <span style="font-size:10px;color:#888">2.4/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做空 (原做多) 趨勢↑ KD同向</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 臻鼎-KY<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +1056張">⚡隔日衝08/18</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +1056張">🔥指標券商08/18</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">4958</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 474.0 <span style="font-size:10px">-5.77%</span></td>
-  <td data-l="今日高低">H=513 L=469<br>買474/賣474</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買27,623張/賣16,895張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#e74c3c;font-weight:bold">大戶 +10,728</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:62%;background:#e74c3c"></div></div></td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 ⛔動能擋 <span style="font-size:10px;color:#888">-8.0/61%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">⛔動能擋: 缺口覆寫: 做多 (原做空) 趨勢↓ 5日動能↓ KD反向 RSI偏多</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 國巨<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="新加坡商瑞銀 +924張 / 美商高盛 +414張 / 元大 +363張">⚡隔日衝08/18</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="美商高盛 +414張 / 元大 +363張">🔥指標券商08/18</span></td><td data-l="代號">2327</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 576.0 <span style="font-size:10px">-5.26%</span></td>
-  <td data-l="今日高低">H=615 L=574<br>買576/賣577</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買34,960張/賣34,987張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -27</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:50%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 -5.3% 缺口 <span style="font-size:10px;color:#888">4.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做空 (原做多) 5日動能↑ KD同向</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 欣興<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="美商高盛 +4811張 / 摩根大通 +3586張 / 元大 +2644張 / 新加坡商瑞銀 +1124張 / 元大-土城永寧 +458張 / 凱基-台北 +442張">⚡隔日衝08/18</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="美商高盛 +4811張 / 摩根大通 +3586張 / 元大 +2644張">🔥指標券商08/18</span></td><td data-l="代號">3037</td>
-  <td data-l="現價" style="color:#e74c3c;font-weight:bold;background:rgba(231,76,60,.18)">▲ 1145.0 <span style="font-size:10px">+2.23%</span></td>
-  <td data-l="今日高低">H=1200 L=1115<br>買1145/賣1150</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買26,583張/賣6,397張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#e74c3c;font-weight:bold">大戶 +20,186</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:81%;background:#e74c3c"></div></div></td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 +2.2% 缺口 <span style="font-size:10px;color:#888">4.2/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做多 (原做多) 趨勢↑ KD同向</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">⭐</span> 藥華藥<br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="凱基-台北 +84張">🔥指標券商08/18</span></td><td data-l="代號">6446</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1400.0 <span style="font-size:10px">-0.71%</span></td>
-  <td data-l="今日高低">H=1430 L=1345<br>買1395/賣1400</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買4,972張/賣11,658張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -6,686</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:30%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 -0.7% 缺口 <span style="font-size:10px;color:#888">5.4/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">缺口覆寫: 做多 (原做多) 趨勢↑ 5日動能↑ KD同向</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap"><span style="color:#2ecc71;font-weight:bold;display:inline-block;min-width:72px">景碩</span> <span style="color:#2ecc71;font-weight:bold">⚠️最快2日處置</span></td><td data-l="代號">3189</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 865.0 <span style="font-size:10px">-4.42%</span></td>
-  <td data-l="今日高低">H=937 L=861<br>買865/賣866</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買10,829張/賣21,725張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -10,896</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:33%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 ⛔動能擋 <span style="font-size:10px;color:#888">-4.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">⛔動能擋: 缺口覆寫: 做多 (原做空) 趨勢↓ 5日動能↓ KD反向 RSI偏多</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#f39c12;font-weight:bold">⭐</span> <span style="color:#ffd93d">南電</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +150張">🔥指標券商08/18</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">8046</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1245.0 <span style="font-size:10px">-3.86%</span></td>
-  <td data-l="今日高低">H=1355 L=1245<br>買1245/賣1250</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買2,384張/賣13,905張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#2ecc71;font-weight:bold">大戶 -11,521</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:15%;background:#2ecc71"></div></div></td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#f39c12;font-weight:bold">⭐</span> <span style="color:#ffd93d">亞德客-KY</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="台灣摩根士丹利 +14張 / 元大 +10張">🔥指標券商08/18</span></td><td data-l="代號">1590</td>
-  <td data-l="現價" style="color:#e74c3c;font-weight:bold;background:rgba(231,76,60,.18)">▲ 1480.0 <span style="font-size:10px">+1.02%</span></td>
-  <td data-l="今日高低">H=1515 L=1465<br>買1475/賣1480</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買1,061張/賣178張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#e74c3c;font-weight:bold">大戶 +883</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:86%;background:#e74c3c"></div></div></td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap">⭐ <span style="color:#f39c12;font-weight:bold">⭐</span> <span style="color:#ffd93d">台燿</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +277張">🔥指標券商08/18</span></td><td data-l="代號">6274</td>
-  <td data-l="現價" style="color:#2ecc71;font-weight:bold;background:rgba(46,204,113,.18)">▼ 1545.0 <span style="font-size:10px">-3.44%</span></td>
-  <td data-l="今日高低">H=1640 L=1515<br>買1540/賣1545</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買4,778張/賣2,643張；散戶 買0張/賣0張 (單筆≥10張為大戶)"><div style="color:#e74c3c;font-weight:bold">大戶 +2,135</div><div style="color:#e74c3c">散戶 +0</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:64%;background:#e74c3c"></div></div></td><td data-l="方向" style="color:#2ecc71;white-space:nowrap">🟢 做空 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
-</tr><tr><td colspan="7" style="font-size:11px;color:#888;border:none;padding-top:6px">方向已套用今日盤中跳空（執行視角，當沖推薦標的無動能守衛），數字旁為盤中漲跌% ； 技術分數/信心：昨日收盤後日線計算（盤中不變）。</td></tr><tr><td colspan="7" style="font-size:11px;color:#666;border:none;padding-top:2px">解說 — <b>KD</b> = 隨機指標 (短線強弱，K&gt;D 偏多 / K&lt;D 偏空)；<b>RSI</b> = 相對強弱指標 (近期漲跌力道，&gt;70 過熱 / &lt;30 超賣)；<b>5日動能</b> = 近 5 日累積漲跌動能；<b>趨勢</b> = 均線方向；<b>缺口</b> = 開盤價跳離昨收 (跳空)；<b>缺口覆寫</b> = 跳空方向直接覆寫原技術信號方向 (例：原做多 → 改做空)。</td></tr></tbody>
+      <tbody><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> 華邦電<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +12053張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +12053張">🔥指標券商08/19</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">2344</td>
+  <td data-l="現價" style="color:#2ecc71;font-weight:bold">178.0 <span style="font-size:10px">-0.84%</span></td>
+  <td data-l="今日高低" style="color:#666">H=181 L=172<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">2.4/18%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">趨勢↑ KD同向</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap">臻鼎-KY<span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">4958</td>
+  <td data-l="現價" style="color:#e74c3c;font-weight:bold">413.5 <span style="font-size:10px">+9.97%</span></td>
+  <td data-l="今日高低" style="color:#666">H=414 L=407<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 <span style="font-size:10px;color:#888">-8.0/61%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">趨勢↓ 5日動能↓ KD反向 RSI偏多</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> 欣興<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="美商高盛 +1407張 / 新加坡商瑞銀 +571張 / 港商野村 +243張 / 摩根大通 +56張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="美商高盛 +1407張 / 台灣摩根士丹利 +1380張 / 摩根大通 +56張">🔥指標券商08/19</span></td><td data-l="代號">3037</td>
+  <td data-l="現價" style="color:#f1c40f;font-weight:bold">992.0 <span style="font-size:10px">+0.00%</span></td>
+  <td data-l="今日高低" style="color:#666">H=995 L=972<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">4.2/32%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">趨勢↑ KD同向</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> 藥華藥<br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="凱基-台北 +128張 / 美商高盛 +127張">🔥指標券商08/19</span></td><td data-l="代號">6446</td>
+  <td data-l="現價" style="color:#e74c3c;font-weight:bold">1330.0 <span style="font-size:10px">+7.26%</span></td>
+  <td data-l="今日高低" style="color:#666">H=1360 L=1190<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">5.4/41%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">趨勢↑ 5日動能↑ KD同向</td></tr><tr><td data-l="標的" style="white-space:nowrap">金像電</td><td data-l="代號">2368</td>
+  <td data-l="現價" style="color:#666">—</td><td data-l="今日高低" style="color:#666">—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 <span style="font-size:10px;color:#888">0.0/0%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">—</td></tr><tr><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> 富喬<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="新加坡商瑞銀 +2132張 / 摩根大通 +233張 / 美商高盛 +178張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +233張 / 美商高盛 +178張">🔥指標券商08/19</span></td><td data-l="代號">1815</td>
+  <td data-l="現價" style="color:#666">—</td><td data-l="今日高低" style="color:#666">—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 <span style="font-size:10px;color:#888">0.0/0%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">—</td></tr><tr><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> 聯鈞<br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +1589張 / 新加坡商瑞銀 +656張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="摩根大通 +1589張">🔥指標券商08/19</span></td><td data-l="代號">3450</td>
+  <td data-l="現價" style="color:#666">—</td><td data-l="今日高低" style="color:#666">—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#7f8c8d;white-space:nowrap">觀望 <span style="font-size:10px;color:#888">0.0/0%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">—</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap"><span style="color:#f39c12;font-weight:bold">🔥</span> <span style="color:#2ecc71;font-weight:bold;display:inline-block;min-width:72px">景碩</span> <span style="color:#2ecc71;font-weight:bold">⚠️最快2日處置</span><br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="新加坡商瑞銀 +378張 / 港商野村 +198張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="台灣摩根士丹利 +459張">🔥指標券商08/19</span></td><td data-l="代號">3189</td>
+  <td data-l="現價" style="color:#e74c3c;font-weight:bold">635.0 <span style="font-size:10px">+9.86%</span></td>
+  <td data-l="今日高低" style="color:#666">H=635 L=635<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#27ae60;white-space:nowrap">🟢 做空 <span style="font-size:10px;color:#888">-4.8/37%</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">趨勢↓ 5日動能↓ KD反向 RSI偏多</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap">🔥 <span style="color:#f39c12;font-weight:bold">🔥</span> <span style="color:#ffd93d">南電</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +154張 / 台灣摩根士丹利 +108張">🔥指標券商08/19</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">8046</td>
+  <td data-l="現價" style="color:#e74c3c;font-weight:bold">1150.0 <span style="font-size:10px">+1.77%</span></td>
+  <td data-l="今日高低" style="color:#666">H=1160 L=1100<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap">🔥 <span style="color:#f39c12;font-weight:bold">🔥</span> <span style="color:#ffd93d">亞德客-KY</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="台灣摩根士丹利 +11張">🔥指標券商08/19</span></td><td data-l="代號">1590</td>
+  <td data-l="現價" style="color:#2ecc71;font-weight:bold">1560.0 <span style="font-size:10px">-0.64%</span></td>
+  <td data-l="今日高低" style="color:#666">H=1575 L=1510<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td></tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap">🔥 <span style="color:#f39c12;font-weight:bold">🔥</span> <span style="color:#ffd93d">台燿</span><br><span class="badge-tip" style="background:#7d3c98;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="元大 +174張 / 摩根大通 +160張 / 新加坡商瑞銀 +150張 / 港商野村 +141張 / 美商高盛 +51張">⚡隔日衝08/19</span><br><span class="badge-tip" style="background:#e67e22;color:#fff;font-size:10px;border-radius:3px;padding:1px 4px;font-weight:bold" title="台灣摩根士丹利 +314張 / 元大 +174張 / 摩根大通 +160張">🔥指標券商08/19</span></td><td data-l="代號">6274</td>
+  <td data-l="現價" style="color:#e74c3c;font-weight:bold">1605.0 <span style="font-size:10px">+9.93%</span></td>
+  <td data-l="今日高低" style="color:#666">H=1605 L=1500<br>買—/賣—</td>
+  <td data-l="大戶" style="color:#666">—</td><td data-l="方向" style="color:#2ecc71;white-space:nowrap">🟢 做空 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)｜⚡隔日衝08/19 元大+174張、摩根大通+160張、新加坡商瑞銀+150張 等5家</td></tr><tr><td colspan="7" style="font-size:11px;color:#888;border:none;padding-top:6px">方向已套用今日盤中跳空（執行視角，當沖推薦標的無動能守衛），數字旁為盤中漲跌% ； 技術分數/信心：昨日收盤後日線計算（盤中不變）。</td></tr><tr><td colspan="7" style="font-size:11px;color:#666;border:none;padding-top:2px">解說 — <b>KD</b> = 隨機指標 (短線強弱，K&gt;D 偏多 / K&lt;D 偏空)；<b>RSI</b> = 相對強弱指標 (近期漲跌力道，&gt;70 過熱 / &lt;30 超賣)；<b>5日動能</b> = 近 5 日累積漲跌動能；<b>趨勢</b> = 均線方向；<b>缺口</b> = 開盤價跳離昨收 (跳空)；<b>缺口覆寫</b> = 跳空方向直接覆寫原技術信號方向 (例：原做多 → 改做空)。</td></tr></tbody>
     </table>
   </div>
   <div class="card">
     <h2>國際快訊 (金十) <span style="font-size:11px;color:#888">— 關鍵字 ⚠️: 伊朗/川普/原油/戰爭/制裁/非農/財報…</span></h2>
     <table>
       <tr><th>時間</th><th>快訊</th></tr>
-      <tr><td style='white-space:nowrap'>13:20:40</td><td style='max-width:560px;' title='【伊朗议会议长卡利巴夫今日将访问伊拉克】金十数据8月18日讯，据伊朗塔斯尼姆通讯社：伊朗议会议长卡利巴夫将于今日率领一个高级议会代表团前往伊拉克，旨在就地区局势变化、加强德黑兰与巴格达战略合作以及探讨共同帮助实现西亚稳定与安全的方案进行对话。'><span style='color:#ffd93d'>⚠️ 伊朗</span> 【伊朗议会议长卡利巴夫今日将访问伊拉克】金十数据8月18日讯，据伊朗塔斯尼姆通讯社：伊朗议会议长卡利巴夫将于今日率领一个高级议会代表团前往伊拉克，旨在就地区局势变化、加强德黑兰与巴格达战略合作以及探讨共同帮助实现西亚稳定与安全的方案进行对话。</td></tr><tr><td style='white-space:nowrap'>13:12:05</td><td style='max-width:560px;' title='【广东前7月离境退税申请增6.4倍，电子产品和服装成热门商品】金十数据8月18日讯，从海关总署广东分署了解到，1—7月，广东省内海关合计验核离境退税申请18.6万票，验核申请单金额16.9亿元，同比分别增长6.4倍、1.2倍。电子产品和服装成为旅客申请离境退税的热门商品。海关总署广东分署表示，下一步将进一步优化通关服务，加强部门协同，提升离境退税办理便利度。'>【广东前7月离境退税申请增6.4倍，电子产品和服装成热门商品】金十数据8月18日讯，从海关总署广东分署了解到，1—7月，广东省内海关合计验核离境退税申请18.6万票，验核申请单金额16.9亿元，同比分别增长6.4倍、1.2倍。电子产品和服装成为旅客申请离境退税的热门商品。海关总署广东分署表示，下一步将进一步优化通关服务，加强部门协同，提升离境退税办理便利度。</td></tr><tr><td style='white-space:nowrap'>13:11:35</td><td style='max-width:560px;' title='日本30年期国债收益率继续上升，最新上涨6个基点至4.135%。'>日本30年期国债收益率继续上升，最新上涨6个基点至4.135%。</td></tr><tr><td style='white-space:nowrap'>13:08:50</td><td style='max-width:560px;' title='【央行主管媒体：谐音梗怎能炒出真收益】金十数据8月18日讯，中国人民银行主管的《金融时报》发文称，电影《牛来》8月5日上映，9天累计票房仅7169元、总观影236人次，几乎没什么人知道。然而，凭借粗糙到抽象的建模和有些荒诞的剧情，影片靠“烂得出奇”在社交平台反向出圈，又因片名读起来顺口讨喜，被部分股民赋予了特殊寓意。事实上，A股历史上类似的“名字行情”并不少见。每逢热点事件，名称沾边的个股总会被资金短暂“关照”一番，但行情往往来得快去得也快。从早年的“情人节概念股”，到重大事件期间名称谐音的个股'>【央行主管媒体：谐音梗怎能炒出真收益】金十数据8月18日讯，中国人民银行主管的《金融时报》发文称，电影《牛来》8月5日上映，9天累计票房仅7169元、总观影236人次，几乎没什么人知道。然而，凭借粗糙到抽象的建模和有些荒诞的剧情，影片靠“烂得出奇”在社交平台反向出圈，又因片名读起来顺口讨喜，被部分股民赋予了特殊寓意。事实上，A股历史上类似的“名字行情”并不少见。每逢热点事件，名称沾边的个股总...</td></tr><tr><td style='white-space:nowrap'>13:06:46</td><td style='max-width:560px;' title='【中国信通院人工智能研究所联合海光及产业组织发布企业算力底座建设研究报告】金十数据8月18日讯，8月18日消息，中国人工智能产业发展联盟第十八次全体会议在北京召开。会上，《数智时代企业算力基座建设路径与行业实践研究报告》正式发布，由海光信息技术股份有限公司、中国信息通信研究院人工智能研究所、海光产业生态合作组织、中国人工智能产业发展联盟基础软硬件与生态工作组联合编写。报告指出，算力底座建设的评价逻辑正从规模扩张转向质量提升，供应链安全与韧性、软件生态与系统适配、商业落地与应用牵引、能源约束与可持'>【中国信通院人工智能研究所联合海光及产业组织发布企业算力底座建设研究报告】金十数据8月18日讯，8月18日消息，中国人工智能产业发展联盟第十八次全体会议在北京召开。会上，《数智时代企业算力基座建设路径与行业实践研究报告》正式发布，由海光信息技术股份有限公司、中国信息通信研究院人工智能研究所、海光产业生态合作组织、中国人工智能产业发展联盟基础软硬件与生态工作组联合编写。报告指出，算力底座建设的...</td></tr><tr><td style='white-space:nowrap'>13:06:12</td><td style='max-width:560px;' title='A股其他农产品加工板块持续走高，中粮糖业涨停，中粮科技、佳沃食品、保龄宝、晨光生物、华资实业等纷纷走高。'>A股其他农产品加工板块持续走高，中粮糖业涨停，中粮科技、佳沃食品、保龄宝、晨光生物、华资实业等纷纷走高。</td></tr><tr><td style='white-space:nowrap'>13:03:10</td><td style='max-width:560px;' title='【印尼计划中的商品交易所可能涵盖棕榈油、镍和煤炭】金十期货8月18日讯，据外媒报道，印尼总统发言人表示，印度尼西亚计划建立的“矿产及战略大宗商品”交易所预计将涵盖棕榈油、镍和煤炭。目前，印尼政府正积极筹备，计划于明年1月1日正式启动该交易所。作为东南亚最大的经济体，印尼是全球最大的棕榈油、动力煤和镍产品出口国，同时也是咖啡豆、铝土矿、锡和铜等大宗商品的主要供应国。总统发言人普拉塞蒂奥·哈迪（Prasetyo Hadi）周一表示，政府目前正在敲定实施细节，包括将在该交易所进行交易的大宗商品种类。他'>【印尼计划中的商品交易所可能涵盖棕榈油、镍和煤炭】金十期货8月18日讯，据外媒报道，印尼总统发言人表示，印度尼西亚计划建立的“矿产及战略大宗商品”交易所预计将涵盖棕榈油、镍和煤炭。目前，印尼政府正积极筹备，计划于明年1月1日正式启动该交易所。作为东南亚最大的经济体，印尼是全球最大的棕榈油、动力煤和镍产品出口国，同时也是咖啡豆、铝土矿、锡和铜等大宗商品的主要供应国。总统发言人普拉塞蒂奥·哈迪（...</td></tr><tr><td style='white-space:nowrap'>13:02:50</td><td style='max-width:560px;' title='【埃尔多安与特朗普通话 呼吁外交解决美伊问题】金十数据8月18日讯，土耳其总统府新闻局18日发表声明说，土总统埃尔多安与美国总统特朗普通电话，呼吁外交解决美国和伊朗之间的问题。声明说，埃尔多安强调了在伊朗与美国紧张局势中充分发挥外交作用的重要性，表达了土耳其希望双方继续对话的愿望，并表示土耳其将继续支持各项和平努力。声明说，双方还就土美双边关系及地区问题交换了意见。埃尔多安表示，土耳其与巴基斯坦、沙特阿拉伯签署共同防务协议，表明了确保地区稳定与安全的坚定立场。谈及加沙局势，他表示，土耳其将继续支'><span style='color:#ffd93d'>⚠️ 伊朗</span> 【埃尔多安与特朗普通话 呼吁外交解决美伊问题】金十数据8月18日讯，土耳其总统府新闻局18日发表声明说，土总统埃尔多安与美国总统特朗普通电话，呼吁外交解决美国和伊朗之间的问题。声明说，埃尔多安强调了在伊朗与美国紧张局势中充分发挥外交作用的重要性，表达了土耳其希望双方继续对话的愿望，并表示土耳其将继续支持各项和平努力。声明说，双方还就土美双边关系及地区问题交换了意见。埃尔多安表示，土耳其与巴基...</td></tr>
+      <tr><td style='white-space:nowrap'>08:39:44</td><td style='max-width:560px;' title='【日本股市下跌，因债市担忧令AI风险偏好降温】金十数据8月19日讯，日经225指数连续第二天下跌，芯片相关股票承压，同时债券收益率飙升引发市场担忧，令投资者对AI交易的风险偏好降温。盘初日经225指数跌超3%，存储芯片制造商铠侠控股和光纤电缆制造商古河电气工业等跌幅居前。东证指数一度跌2.8%，电子股和银行股拖累指数表现。大和资产管理公司首席策略师表示：“收益率上升将推高超大规模云服务商的借贷成本，引发市场对资本支出前景的疑问，并可能影响那些受益于AI投资热潮的基础设施企业。”周二，日本10年期'>【日本股市下跌，因债市担忧令AI风险偏好降温】金十数据8月19日讯，日经225指数连续第二天下跌，芯片相关股票承压，同时债券收益率飙升引发市场担忧，令投资者对AI交易的风险偏好降温。盘初日经225指数跌超3%，存储芯片制造商铠侠控股和光纤电缆制造商古河电气工业等跌幅居前。东证指数一度跌2.8%，电子股和银行股拖累指数表现。大和资产管理公司首席策略师表示：“收益率上升将推高超大规模云服务商的借...</td></tr><tr><td style='white-space:nowrap'>08:37:50</td><td style='max-width:560px;' title='韩国联合参谋本部：将调整“乙支自由护盾”（UFS）军事演习的日程和规模，军事演习时间缩短至8月17日至21日。'>韩国联合参谋本部：将调整“乙支自由护盾”（UFS）军事演习的日程和规模，军事演习时间缩短至8月17日至21日。</td></tr><tr><td style='white-space:nowrap'>08:37:32</td><td style='max-width:560px;' title='亚股
+1. 中国上证综指8月18日（周二）收盘上涨7.65点，涨幅：0.19%，报3990.3点；
+2. 中国深证成指8月18日（周二）收盘下跌81.78点，跌幅：0.56%，报14622.5点；
+3. 中国沪深300指数8月18日（周二）收盘下跌15.28点，跌幅：0.32%，报4725.81点；
+4. 中国创业板指数8月18日（周二）收盘下跌34.59点，跌幅：0.92%，报3705.56点；
+5. 中国科创50指数8月18日（周二）收盘上涨2.02点，涨幅：0.11%，报1790.87点；'>亚股
+1. 中国上证综指8月18日（周二）收盘上涨7.65点，涨幅：0.19%，报3990.3点；
+2. 中国深证成指8月18日（周二）收盘下跌81.78点，跌幅：0.56%，报14622.5点；
+3. 中国沪深300指数8月18日（周二）收盘下跌15.28点，跌幅：0.32%，报4725.81点；
+4. 中国创业板指数8月18日（周二）收盘下跌34.59点，跌幅：0.92%，报3705.5...</td></tr><tr><td style='white-space:nowrap'>08:37:04</td><td style='max-width:560px;' title='日本10年期国债收益率下跌1.5个基点，至2.920%。'>日本10年期国债收益率下跌1.5个基点，至2.920%。</td></tr><tr><td style='white-space:nowrap'>08:34:02</td><td style='max-width:560px;' title='MSCI亚太指数跌2%，创7月29日以来最大跌幅。'>MSCI亚太指数跌2%，创7月29日以来最大跌幅。</td></tr><tr><td style='white-space:nowrap'>08:30:24</td><td style='max-width:560px;' title='【中信证券：算力新技术、微盘跨界、供电新架构、锂电的主题热情有望升温】金十数据8月19日讯，中信证券表示，上周市场在前一周普涨后转入高位分化整固，风格出现二次切换：上证指数收跌，此前抗跌的大盘蓝筹转弱；创业板指逆势收涨，但科创50、北证50转弱，前期涨幅居前的有色回吐最重，仅通信在海外算力链验证下独立领涨。日均成交缩量至2.35万亿元，增量资金转向债券ETF避险，低位反攻仍在蓄力。从催化因素和时序上看，算力新技术、微盘跨界、供电新架构、锂电的主题热情有望升温。结合市场环境、催化因素以及综合量化指'>【中信证券：算力新技术、微盘跨界、供电新架构、锂电的主题热情有望升温】金十数据8月19日讯，中信证券表示，上周市场在前一周普涨后转入高位分化整固，风格出现二次切换：上证指数收跌，此前抗跌的大盘蓝筹转弱；创业板指逆势收涨，但科创50、北证50转弱，前期涨幅居前的有色回吐最重，仅通信在海外算力链验证下独立领涨。日均成交缩量至2.35万亿元，增量资金转向债券ETF避险，低位反攻仍在蓄力。从催化因素...</td></tr><tr><td style='white-space:nowrap'>08:29:26</td><td style='max-width:560px;' title='消息人士：SK海力士工会正在最终确定临时工资协议的措辞，并将在今天下午向工会会员通报相关条款。'>消息人士：SK海力士工会正在最终确定临时工资协议的措辞，并将在今天下午向工会会员通报相关条款。</td></tr><tr><td style='white-space:nowrap'>08:27:17</td><td style='max-width:560px;' title='【华泰证券：氨纶供需趋紧，行业景气有望上行】金十数据8月19日讯，华泰证券研报表示，2022年以来，受行业产能持续投放影响，氨纶价格及企业盈利显著承压；伴随本轮集中扩产进入收尾、低效产能陆续退出，以及弹性服饰消费增长与氨纶渗透率提升，行业供需自2025年以来逐步改善。2026年初，库存去化叠加地缘局势推升成本，氨纶价格明显反弹；同时伴随原料成本逐步回落，行业价差进一步扩大。华泰证券认为，在新增产能有限及需求稳健增长的带动下，氨纶供需或逐步转向偏紧，行业有望进入向上通道，进而推动价格价差的进一步走'>【华泰证券：氨纶供需趋紧，行业景气有望上行】金十数据8月19日讯，华泰证券研报表示，2022年以来，受行业产能持续投放影响，氨纶价格及企业盈利显著承压；伴随本轮集中扩产进入收尾、低效产能陆续退出，以及弹性服饰消费增长与氨纶渗透率提升，行业供需自2025年以来逐步改善。2026年初，库存去化叠加地缘局势推升成本，氨纶价格明显反弹；同时伴随原料成本逐步回落，行业价差进一步扩大。华泰证券认为，在新...</td></tr>
     </table>
   </div>
   <div class="card full">
@@ -188,198 +177,25 @@ td{padding:7px 6px;border-bottom:1px solid #0f3460;color:#ddd}
     <div style="font-size:12px;color:#ffd93d;margin:6px 0 4px;font-weight:bold">① 規則交易</div>
     <table style="table-layout:fixed">
       <tr><th data-pg="pg-rule" data-ps="10">日期</th><th data-pg="pg-rule" data-ps="10">進場</th><th data-pg="pg-rule" data-ps="10">出場</th><th data-pg="pg-rule" data-ps="10">標的</th><th data-pg="pg-rule" data-ps="10">做多/做空</th><th data-pg="pg-rule" data-ps="10">價格</th><th data-pg="pg-rule" data-ps="10">損益</th><th data-pg="pg-rule" data-ps="10">原因</th></tr>
-      <tr class="pg-rule">
-  <td>2026-08-18</td><td>09:02:00</td><td>09:02:25</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1345→1325 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,730</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:02:25</td><td>09:03:48</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1325→1330 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-9,265</td>
-  <td>移动止盈</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:03:48</td><td>09:10:02</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1330→1310 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,778</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:10:02</td><td>09:15:59</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1310→1335 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-29,264</td>
-  <td>停损</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:15:59</td><td>09:23:28</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1330→1335 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-9,281</td>
-  <td>移动止盈</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:23:28</td><td>09:47:01</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1335→1340 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-9,297</td>
-  <td>移动止盈</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:47:01</td><td>09:58:34</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1340→1320 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,746</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:58:34</td><td>10:04:21</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1320→1345 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-29,296</td>
-  <td>停损</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>10:04:21</td><td>10:12:17</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1340→1320 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,746</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>09:02:00</td><td>10:14:27</td><td>臻鼎-KY(4958)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>504→486 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-19,575</td>
-  <td>停损</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>10:12:17</td><td>10:23:12</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1320→1300 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,810</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>10:23:12</td><td>11:32:21</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1300→1280 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,874</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>11:39:35</td><td>11:59:25</td><td>南電(8046)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>1295→1275 - 1張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,890</td>
-  <td>获利</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>10:14:27</td><td>12:09:39</td><td>臻鼎-KY(4958)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>489→471 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-19,527</td>
-  <td>停损</td>
-</tr><tr class="pg-rule">
-  <td>2026-08-18</td><td>12:09:39</td><td>13:02:08</td><td>臻鼎-KY(4958)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>474→476 - 1張</td>
-  <td style="color:#2ecc71;font-weight:bold">-25</td>
-  <td>移动止盈</td>
-</tr>
+      <tr><td colspan="7" style="text-align:center;color:#666">無規則交易</td></tr>
     </table>
-    <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-rule-prev" onclick="pgPrev('.pg-rule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-rule-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-rule-next" onclick="pgNext('.pg-rule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
+    
     <div style="font-size:12px;color:#f39c12;margin:10px 0 4px;font-weight:bold">② 非規則交易 <span style="font-size:10px;color:#888">(開盤強制單等例外路徑)</span></div>
     <table style="table-layout:fixed">
       <tr><th data-pg="pg-nonrule" data-ps="10">日期</th><th data-pg="pg-nonrule" data-ps="10">進場</th><th data-pg="pg-nonrule" data-ps="10">出場</th><th data-pg="pg-nonrule" data-ps="10">標的</th><th data-pg="pg-nonrule" data-ps="10">做多/做空</th><th data-pg="pg-nonrule" data-ps="10">價格</th><th data-pg="pg-nonrule" data-ps="10">損益</th><th data-pg="pg-nonrule" data-ps="10">原因</th></tr>
-      <tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:00:05</td><td>臻鼎-KY(4958)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>507→508 - 2.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-5,260</td>
-  <td>移动止盈 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:00:08</td><td>南電(8046)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>1315→1335 - 1.0張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,732</td>
-  <td>获利 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:00:33</td><td>景碩(3189)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>916→936 - 1.0張</td>
-  <td style="color:#e74c3c;font-weight:bold">17,013</td>
-  <td>获利 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:00:49</td><td>欣興(3037)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>1135→1130 - 1.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-8,632</td>
-  <td>移动止盈 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:00:58</td><td>藥華藥(6446)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>1425→1390 - 1.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-39,492</td>
-  <td>停损 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:01:30</td><td>亞德客-KY(1590)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>1485→1505 - 1.0張</td>
-  <td style="color:#e74c3c;font-weight:bold">15,186</td>
-  <td>获利 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:02:20</td><td>華邦電(2344)</td>
-  <td style="color:#2ecc71">做空</td>
-  <td>188→195 - 8.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-64,956</td>
-  <td>停损 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr><tr class="pg-nonrule">
-  <td>2026-08-18</td><td>09:00:00</td><td>09:09:59</td><td>國巨(2327)</td>
-  <td style="color:#e74c3c">做多</td>
-  <td>614→598 - 2.0張</td>
-  <td style="color:#2ecc71;font-weight:bold">-35,867</td>
-  <td>停损 <span style="color:#f39c12;font-size:10px" title="open0900">[open0900]</span></td>
-</tr>
+      <tr><td colspan="7" style="text-align:center;color:#666">無非規則交易</td></tr>
     </table>
-    <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-nonrule-prev" onclick="pgPrev('.pg-nonrule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-nonrule-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-nonrule-next" onclick="pgNext('.pg-nonrule')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
+    
     <div style="font-size:12px;color:#9b59b6;margin:10px 0 4px;font-weight:bold">③ 影子交易 <span style="font-size:10px;color:#888">(有訊號但被守衛擋掉, 假如放行的模擬單 — 懸停欄位看解說)</span></div>
     <table>
       <tr><th data-pg="pg-shadow" data-ps="10">日期</th><th data-pg="pg-shadow" data-ps="10">時間</th><th data-pg="pg-shadow" data-ps="10">標的</th><th data-pg="pg-shadow" data-ps="10">方向</th><th data-pg="pg-shadow" data-ps="10">進場價</th><th data-pg="pg-shadow" data-ps="10">被擋規則</th><th data-pg="pg-shadow" data-ps="10">判定</th></tr>
-      <tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:02:00</td><td>藥華藥</td>
-  <td style="color:#e74c3c">🔴 做多</td><td>1410.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">信心</td>
-  <td title="假如放行的模擬判定: CORRECT_BLOCK">CORRECT_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:02:00</td><td>亞德客-KY</td>
-  <td style="color:#2ecc71">🟢 做空</td><td>1505.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">信心;曝險</td>
-  <td title="假如放行的模擬判定: CORRECT_BLOCK">CORRECT_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:03:48</td><td>華邦電</td>
-  <td style="color:#2ecc71">🟢 做空</td><td>189.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">信心</td>
-  <td title="假如放行的模擬判定: CORRECT_BLOCK">CORRECT_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:02:00</td><td>台燿</td>
-  <td style="color:#e74c3c">🔴 做多</td><td>1605.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">曝險</td>
-  <td title="假如放行的模擬判定: FALSE_BLOCK">FALSE_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:09:59</td><td>國巨</td>
-  <td style="color:#2ecc71">🟢 做空</td><td>601.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">信心;平盤下放空</td>
-  <td title="假如放行的模擬判定: FALSE_BLOCK">FALSE_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>11:32:21</td><td>南電</td>
-  <td style="color:#2ecc71">🟢 做空</td><td>1280.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">平盤下放空</td>
-  <td title="假如放行的模擬判定: CORRECT_BLOCK">CORRECT_BLOCK</td>
-</tr><tr class="pg-shadow">
-  <td>2026-08-18</td><td>09:02:00</td><td>新唐</td>
-  <td style="color:#2ecc71">🟢 做空</td><td>125.0</td>
-  <td style="font-size:11px;color:#95a5a6" title="被哪條守衛規則擋下">信心;平盤下放空;帶檢查</td>
-  <td title="假如放行的模擬判定: FALSE_BLOCK">FALSE_BLOCK</td>
-</tr>
+      <tr><td colspan="7" style="text-align:center;color:#666">無影子交易</td></tr>
     </table>
-    <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-shadow-prev" onclick="pgPrev('.pg-shadow')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-shadow-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-shadow-next" onclick="pgNext('.pg-shadow')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
+    
   </div>
   <div class="card full">
     <h2>事件日誌</h2>
-    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5"><div class="pg-log">[10:46:30] CLOSE 南電(8046) PnL=-34,295 [停损]</div><div class="pg-log">[10:46:30] OPEN 南電(8046) long @1335</div><div class="pg-log">[10:54:06] OPEN 臻鼎-KY(4958) long @504</div><div class="pg-log">[12:57:40] CLOSE 南電(8046) PnL=-34,215 [停损]</div><div class="pg-log">[12:57:40] OPEN 南電(8046) long @1310</div><div class="pg-log">[13:25:00] CLOSE 臻鼎-KY(4958) PnL=-4,611 [收盤平倉]</div><div class="pg-log">[13:25:00] CLOSE 南電(8046) PnL=-19,170 [收盤平倉]</div><div class="pg-log">[09:00:00] OPEN 南電(8046) long @1315</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 南電(8046) long @1315 x1.0張 停損1289 停利1335 (+20點, tech(57%))</div><div class="pg-log">[09:00:00] OPEN 國巨(2327) long @614</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 國巨(2327) long @614 x2.0張 停損602 停利634 (+20點, tech(37%))</div><div class="pg-log">[09:00:00] OPEN 欣興(3037) long @1135</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 欣興(3037) long @1135 x1.0張 停損1112 停利1155 (+20點, tech(32%))</div><div class="pg-log">[09:00:00] OPEN 亞德客-KY(1590) long @1485</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 亞德客-KY(1590) long @1485 x1.0張 停損1455 停利1505 (+20點, tech(28%))</div><div class="pg-log">[09:00:00] OPEN 華邦電(2344) short @188</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 華邦電(2344) short @188 x8.0張 停損191 停利168 (+20點, gap:short)</div><div class="pg-log">[09:00:00] OPEN 景碩(3189) long @916</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 景碩(3189) long @916 x1.0張 停損898 停利936 (+20點, gap:long)</div><div class="pg-log">[09:00:00] OPEN 臻鼎-KY(4958) short @507</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 臻鼎-KY(4958) short @507 x2.0張 停損517 停利487 (+20點, tech(61%))</div><div class="pg-log">[09:00:00] OPEN 藥華藥(6446) long @1425</div><div class="pg-log">[09:00:00] 🕘 開盤強制單 藥華藥(6446) long @1425 x1.0張 停損1396 停利1445 (+20點, tech(41%))</div><div class="pg-log">[09:00:05] CLOSE 臻鼎-KY(4958) PnL=-5,260 [移动止盈]</div><div class="pg-log">[09:00:08] CLOSE 南電(8046) PnL=15,732 [获利]</div><div class="pg-log">[09:00:33] CLOSE 景碩(3189) PnL=17,013 [获利]</div><div class="pg-log">[09:00:49] CLOSE 欣興(3037) PnL=-8,632 [移动止盈]</div><div class="pg-log">[09:00:58] CLOSE 藥華藥(6446) PnL=-39,492 [停损]</div><div class="pg-log">[09:01:30] CLOSE 亞德客-KY(1590) PnL=15,186 [获利]</div><div class="pg-log">[09:02:00] OPEN 南電(8046) short @1345</div><div class="pg-log">[09:02:00] OPEN 臻鼎-KY(4958) long @504</div><div class="pg-log">[09:02:20] CLOSE 華邦電(2344) PnL=-64,956 [停损]</div><div class="pg-log">[09:02:25] CLOSE 南電(8046) PnL=15,730 [获利]</div><div class="pg-log">[09:02:25] OPEN 南電(8046) short @1325</div><div class="pg-log">[09:03:48] CLOSE 南電(8046) PnL=-9,265 [移动止盈]</div><div class="pg-log">[09:03:48] OPEN 南電(8046) short @1330</div><div class="pg-log">[09:09:59] CLOSE 國巨(2327) PnL=-35,867 [停损]</div><div class="pg-log">[09:10:02] CLOSE 南電(8046) PnL=15,778 [获利]</div><div class="pg-log">[09:10:02] OPEN 南電(8046) short @1310</div><div class="pg-log">[09:15:59] CLOSE 南電(8046) PnL=-29,264 [停损]</div><div class="pg-log">[09:15:59] OPEN 南電(8046) short @1330</div><div class="pg-log">[09:23:28] CLOSE 南電(8046) PnL=-9,281 [移动止盈]</div><div class="pg-log">[09:23:28] OPEN 南電(8046) short @1335</div><div class="pg-log">[09:47:01] CLOSE 南電(8046) PnL=-9,297 [移动止盈]</div><div class="pg-log">[09:47:01] OPEN 南電(8046) short @1340</div><div class="pg-log">[09:58:34] CLOSE 南電(8046) PnL=15,746 [获利]</div><div class="pg-log">[09:58:34] OPEN 南電(8046) short @1320</div><div class="pg-log">[10:04:21] CLOSE 南電(8046) PnL=-29,296 [停损]</div><div class="pg-log">[10:04:21] OPEN 南電(8046) short @1340</div><div class="pg-log">[10:12:17] CLOSE 南電(8046) PnL=15,746 [获利]</div><div class="pg-log">[10:12:17] OPEN 南電(8046) short @1320</div><div class="pg-log">[10:14:27] CLOSE 臻鼎-KY(4958) PnL=-19,575 [停损]</div><div class="pg-log">[10:14:27] OPEN 臻鼎-KY(4958) long @489</div><div class="pg-log">[10:23:12] CLOSE 南電(8046) PnL=15,810 [获利]</div><div class="pg-log">[10:23:12] OPEN 南電(8046) short @1300</div><div class="pg-log">[11:32:21] CLOSE 南電(8046) PnL=15,874 [获利]</div><div class="pg-log">[11:39:35] OPEN 南電(8046) short @1295</div><div class="pg-log">[11:59:25] CLOSE 南電(8046) PnL=15,890 [获利]</div><div class="pg-log">[12:09:39] CLOSE 臻鼎-KY(4958) PnL=-19,527 [停损]</div><div class="pg-log">[12:09:39] OPEN 臻鼎-KY(4958) long @474</div><div class="pg-log">[13:02:08] CLOSE 臻鼎-KY(4958) PnL=-25 [移动止盈]</div></div>
+    <div style="font-family:monospace;font-size:12px;color:#95a5a6;line-height:1.5"><div class="pg-log">[13:02:08] CLOSE 臻鼎-KY(4958) PnL=-25 [移动止盈]</div></div>
     <div style="margin:6px 0;text-align:right;font-size:12px"><button id="pg-log-prev" onclick="pgPrev('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">◀ 上一頁</button> <span id="pg-log-pg" style="color:#888;margin:0 8px">1 / 1</span><button id="pg-log-next" onclick="pgNext('.pg-log')" style="background:#0f3460;color:#eee;border:1px solid #1f4a7a;border-radius:5px;padding:2px 10px;cursor:pointer">下一頁 ▶</button></div>
   </div>
 </div>
