@@ -1,0 +1,38 @@
+# pages-deploy — 公開頁(dashboard)改由 Actions 部署 (V8.67j, 2026-09-18)
+# 原因: 引擎每 ~10 秒推送 gh-pages → legacy Pages 建置被高頻觸發且全部失敗
+#       ("Page build failed." — 97/100), 公開頁永遠停在舊版。
+# 本 workflow: 手動(workflow_dispatch)或每日收盤後排程, 抓 gh-pages 最新 raw
+#       dashboard 部署; 頁面本身每 1s 輪詢 raw → 內容永遠即時。
+name: pages-deploy
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "40 5 * * 1-5"   # 13:40 台北 (UTC+8) 收盤後刷新
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Fetch latest dashboard (gh-pages raw)
+        run: |
+          mkdir -p public/html public/data
+          curl -fsSL --retry 3 --retry-delay 2             "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/gh-pages/html/dashboard.html"             -o public/html/dashboard.html
+          curl -fsSL --retry 3 --retry-delay 2             "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/gh-pages/data/sync_probe.txt"             -o public/data/sync_probe.txt || true
+          printf '%s
+' '<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=./html/dashboard.html"><title>dashboard</title></head><body><a href="./html/dashboard.html">dashboard</a></body></html>' > public/index.html
+          ls -lR public
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4
