@@ -7,6 +7,11 @@ name: pages-deploy
 on:
   workflow_dispatch:
   schedule:
+    # 盤中每小時 + 收盤後 (台北 09:00/10:00/11:00/12:00/13:00/13:40; UTC+8)
+    # 由來: 部署頁若停在「昨日收工版」(可能不含 rt-status meta 或 content!=live),
+    # 頁面自己的 1s raw 輪詢會被 gate 擋住 → 公開頁整個上午凍結 (2026-09-21 事故)。
+    # 提高部署頻率 → 部署頁內容永遠是盤中即時版 (meta=live) → 輪詢存活。
+    - cron: '0 1,2,3,4,5 * * 1-5'
     - cron: '40 5 * * 1-5'
   push:
     branches: [ main ]
