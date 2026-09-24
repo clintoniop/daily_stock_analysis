@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-09-24T13:29:43.913745+08:00">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-09-24T13:29:59.514445+08:00">
 <title>模擬交易儀錶板 — V7</title>
 <style>
 * {box-sizing:border-box;margin:0;padding:0}
@@ -96,7 +96,7 @@ details.fold[open]>summary{color:#888}
 <body>
 
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:29:43</span>
+<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:29:59</span>
  | <span style="color:#666">⛔ kill_switch: OFF (模擬)</span></div>
 <div class="summary">
   <div class="metric"><div class="val">4</div><div class="lbl">總交易</div></div>
@@ -254,7 +254,7 @@ details.fold[open]>summary{color:#888}
 </tr><tr>
   <td data-l="標的" style="white-space:nowrap">🔥 <span style="color:#ffd93d">南電</span><span class="disp-m"><span style="color:#ffd93d">注意股</span></span></td><td data-l="代號">8046</td>
   <td data-l="現價" style="color:#e74c3c;font-weight:bold;background:rgba(231,76,60,.18)">▲ 1240.0 <span style="font-size:10px">+2.48%</span></td>
-  <td data-l="今日高低">H=1270 L=1190<br>買1245/賣1250</td>
+  <td data-l="今日高低">H=1270 L=1190<br>買1240/賣1245</td>
   <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買3,507張/賣2,242張；散戶 買4,076張/賣2,613張 (單筆≥10張為大戶)"><div style="color:#e74c3c;font-weight:bold">大戶 +1,265</div><div style="color:#e74c3c">散戶 +1,463</div><div style="height:4px;background:#2a2a2a;border-radius:2px;overflow:hidden"><div style="height:4px;width:61%;background:#e74c3c"></div></div></td><td data-l="方向" style="color:#e74c3c;white-space:nowrap">🔴 做多 <span style="font-size:10px;color:#888">推薦</span></td><td data-l="原因" style="font-size:11px;color:#95a5a6">每日推薦快照 (固定當日方向)</td>
 </tr><tr><td colspan="7" style="border:none;padding-top:6px"><div class="sig-note" style="border:1px solid #0f3460;border-radius:8px;padding:8px 10px;background:#101a33;font-size:11px;line-height:1.6;color:#888"><div>方向已套用今日盤中跳空（執行視角，當沖推薦標的無動能守衛），數字旁為盤中漲跌% ； 技術分數/信心：昨日收盤後日線計算（盤中不變）。</div><div style="margin-top:4px;padding-top:4px;border-top:1px dashed #0f3460;color:#666">解說 — <b>KD</b> = 隨機指標 (短線強弱，K&gt;D 偏多 / K&lt;D 偏空)；<b>RSI</b> = 相對強弱指標 (近期漲跌力道，&gt;70 過熱 / &lt;30 超賣)；<b>5日動能</b> = 近 5 日累積漲跌動能；<b>趨勢</b> = 均線方向；<b>缺口</b> = 開盤價跳離昨收 (跳空)；<b>缺口覆寫</b> = 跳空方向直接覆寫原技術信號方向 (例：原做多 → 改做空)。</div></div></td></tr></tbody>
     </table>
