@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-01T08:50:18.399067+08:00">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-01T08:50:29.190580+08:00">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -131,7 +131,7 @@ details.fold>summary{padding:8px 0;font-size:13px}
 <header class="topbar">
 <div class="brand">
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 08:50:18</span>
+<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 08:50:29</span>
  | <span style="color:#5b6472">⛔ kill_switch: OFF (模擬)</span></div>
 </div>
 <div class="summary">
@@ -343,7 +343,7 @@ details.fold>summary{padding:8px 0;font-size:13px}
 規則: 總量前150掃描 → DTR≥40% → 當沖量前10（其中 5 檔觀望，依用戶指示不列出）。
 方向: A/B🔴回檔承接 · D/E🟢反彈試空 · C⛔震盪不操作 · F⛔Phase0排除。
 價位級距=ATR14原型值(未優化)。鐵律: <b>禁開盤追價</b>(Phase0 485日實證) · 13:00後不進新倉 · 獲利用市價出場</div>
-<div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(128,128,128,.35)"><div style="font-size:12px;color:#e8c24a;font-weight:bold;margin-bottom:4px">📊 前一日預測檢驗 <span style="font-weight:400;opacity:.7">(2026-09-29)</span></div><div style="font-size:.85em;line-height:1.5"><div>⚠️ <b>3042</b> 🟢 做空 → <b>預測失敗</b><span style="opacity:.6"> 方向錯誤但過程觸及進場區 212.09~220.46</span></div></div><div style="opacity:.6;font-size:.78em;margin-top:4px">近 9 個交易日: 完全成功 0 · 預測成功 4 · 預測失敗 3 · 完全失敗 0 → 方向準確率 57.1%（n=7）<br>成功標準(用戶 2026-09-23 統一四級): 方向+進場區+目標 過程全符合=完全成功 · 方向正確但過程未達進場區或目標=預測成功 · 方向錯誤但過程有達進場區或目標=預測失敗 · 全錯=完全失敗（方向基準=前一日收盤）</div></div>
+<div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(128,128,128,.35)"><div style="font-size:12px;color:#e8c24a;font-weight:bold;margin-bottom:4px">📊 前一日預測檢驗 <span style="font-weight:400;opacity:.7">(2026-09-29)</span></div><div style="font-size:.85em;line-height:1.5"><div>✅ <b>3042</b> 🟢 做空 → <b>預測成功</b><span style="opacity:.6"> 進場 212.09 後曾低於進場價、未確認達目標 190.55（日K近似）</span></div></div><div style="opacity:.6;font-size:.78em;margin-top:4px">近 9 個交易日: 完全成功 0 · 預測成功 12 · 預測失敗 0 · 完全失敗 0 → 方向準確率 100.0%（n=12）<br>成功標準(用戶 2026-10-01): 進區後先達目標且沒先碰停損=完全成功 · 進場後曾往有利方向走未達標／先碰停損後才達標／沒進場但整天在有利側=預測成功 · 進場後一直沒往有利方向走=預測失敗 · 沒進場且整天在不利側=完全失敗（方向基準=推薦進場價，1分K判先後；無1分K以日K近似）</div></div>
 </div>
   <div class="card full" id="c-positions">
     <h2>即時持倉</h2>
