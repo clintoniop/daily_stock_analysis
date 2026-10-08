@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-08T13:30:21.531592+08:00">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-08T13:30:32.200924+08:00">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -131,7 +131,7 @@ details.fold>summary{padding:8px 0;font-size:13px}
 <header class="topbar">
 <div class="brand">
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:30:21</span>
+<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:30:32</span>
  | <span style="color:#5b6472">⛔ kill_switch: OFF (模擬)</span></div>
 </div>
 <div class="summary">
@@ -149,7 +149,7 @@ details.fold>summary{padding:8px 0;font-size:13px}
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
-      <tr title="訊號分級: 漲跌幅 ≥1% 強多/≥0.3% 偏多/±0.3% 中性/≤-0.3% 偏空/≤-1% 強空"><td>加權指數</td><td style="color:#2fbf71;font-weight:bold">49,433.57</td><td style="color:#2fbf71">-372.80</td><td style="color:#2fbf71">-0.75%</td><td>H=49,783 L=49,190</td><td style="color:#2fbf71;font-weight:bold">🟢 偏空</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#2fbf71;font-weight:bold">49,407</td><td style="color:#2fbf71">-561</td><td style="color:#2fbf71">-1.12%</td><td>H=49,692 L=49,365 量=31,688口<br><span style="font-size:11px;color:#8b95a3"> 逆價差 27 (期貨弱)</span></td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr>
+      <tr title="訊號分級: 漲跌幅 ≥1% 強多/≥0.3% 偏多/±0.3% 中性/≤-0.3% 偏空/≤-1% 強空"><td>加權指數</td><td style="color:#2fbf71;font-weight:bold">49,433.57</td><td style="color:#2fbf71">-372.80</td><td style="color:#2fbf71">-0.75%</td><td>H=49,783 L=49,190</td><td style="color:#2fbf71;font-weight:bold">🟢 偏空</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#2fbf71;font-weight:bold">49,425</td><td style="color:#2fbf71">-543</td><td style="color:#2fbf71">-1.09%</td><td>H=49,692 L=49,365 量=31,776口<br><span style="font-size:11px;color:#8b95a3"> 逆價差 9 (期貨弱)</span></td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr>
     </table>
     <div class="sub-h">大盤預測 - deepseek <span style="font-size:11px;color:#8b95a3">(08:30 LOG 2026-10-08)</span></div>
     <div class="fc-hdr" style="margin:4px 0;line-height:1.7;font-size:12px"><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">開盤: 預估 49,400~49,750（以夜盤收 49,593 錨定，對 10/7 收盤 49,806.37 約 -406~-56 點；夜盤已反映美股收黑，估再折 0~200 點）。</div><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">方向: 🟢 偏空（開低震盪）</div></div><div style="margin:3px 0;line-height:1.6;font-size:12px"><span style="color:#5b9cf6;font-weight:bold">劇本: </span>開低走低（40%）：開 49,500 以下、連假前賣壓出籠，跌破 49,456 → 收 49,000~49,450；<br>② 開低震盪回穩（35%）：開低後買盤承接被動元件／石化／玻纖布，49,450~49,850 區間整理 → 收 49,550~49,800；<br>③ 開低走高（25%）：油價回落、美股電子盤翻紅，10:00 前站回 49,806 → 收 49,850~50,100。<br>量能：10/7 僅 9,259.92 億（連 2 日縮）；<br>連假前一日易再縮至 8,500~9,500 億，量不出則反彈無力。<br>｜關鍵位: 支撐 49,593（夜盤收）→ 49,456（夜盤低）→ 49,000；<br>壓力 49,806（昨收）→ 49,968（前高）→ 50,000（5 萬大關）。<br></div>
@@ -300,15 +300,13 @@ details.fold>summary{padding:8px 0;font-size:13px}
   <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買170張/賣527張；散戶 買597張/賣379張 (單筆≥10張為大戶)"><div style="color:#2fbf71;font-weight:bold">大戶 -357</div><div style="color:#f05a5a">散戶 +218</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:24%;background:#2fbf71"></div></div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">-1.2/3%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">5日動能↓ KD同向</td>
 </tr><tr>
   <td data-l="標的" style="white-space:nowrap"><span style="color:#f2a150;font-weight:bold">🔥</span> 亞德客-KY<br><span class="badge-tip bt-key" title="美商高盛 +21張 / 台灣摩根士丹利 +6張">🔥指標券商10/07</span><span class="bt-detail" style="display:none">美商高盛 +21張 / 台灣摩根士丹利 +6張</span></td><td data-l="代號">1590</td>
-  <td data-l="現價" style="color:#2fbf71;font-weight:bold;background:rgba(47,191,113,.16)">▼ 1200.0 <span style="font-size:11px">買一掛價·非成交</span> <span style="font-size:11px">-2.44%</span></td>
+  <td data-l="現價" style="color:#2fbf71;font-weight:bold;background:rgba(47,191,113,.16)">▼ 1205.0 <span style="font-size:11px">-2.03%</span></td>
   <td data-l="今日高低">H=1255 L=1195<br>買1200/賣1205</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買32張/賣469張；散戶 買508張/賣622張 (單筆≥10張為大戶)"><div style="color:#2fbf71;font-weight:bold">大戶 -437</div><div style="color:#2fbf71">散戶 -114</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:6%;background:#2fbf71"></div></div></td><td data-l="方向" style="color:#f05a5a;white-space:nowrap">🔴 做多 -2.4% 缺口 <span style="font-size:11px;color:#8b95a3">1.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">缺口覆寫: 做多 (原做多) 趨勢↓ KD同向 RSI偏多</td>
-</tr><tr>
-  <td data-l="標的" style="white-space:nowrap">昇達科</td><td data-l="代號">3491</td>
-  <td data-l="現價" style="color:#2fbf71;font-weight:bold;background:rgba(47,191,113,.16)">▼ 1685.0 <span style="font-size:11px">買一掛價·非成交</span> <span style="font-size:11px">-1.17%</span></td>
-  <td data-l="今日高低">H=1730 L=1670<br>買1685/賣1690</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買58張/賣57張；散戶 買399張/賣463張 (單筆≥10張為大戶)"><div style="color:#f05a5a;font-weight:bold">大戶 +1</div><div style="color:#2fbf71">散戶 -64</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:50%;background:#f05a5a"></div></div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">1.0/8%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">趨勢↑ 5日動能↓ KD同向 RSI偏空</td>
-</tr><tr>
+  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買32張/賣616張；散戶 買508張/賣622張 (單筆≥10張為大戶)"><div style="color:#2fbf71;font-weight:bold">大戶 -584</div><div style="color:#2fbf71">散戶 -114</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:5%;background:#2fbf71"></div></div></td><td data-l="方向" style="color:#f05a5a;white-space:nowrap">🔴 做多 -2.0% 缺口 <span style="font-size:11px;color:#8b95a3">1.8/55%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">缺口覆寫: 做多 (原做多) 趨勢↓ KD同向 RSI偏多</td>
+</tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap">昇達科</td><td data-l="代號">3491</td>
+  <td data-l="現價" style="color:#2fbf71;font-weight:bold">1705.0 <span style="font-size:11px">-0.58%</span></td>
+  <td data-l="今日高低" style="color:#5b6472">H=1760 L=1680<br>買—/賣—</td>
+  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買58張/賣57張；散戶 買399張/賣463張 (單筆≥10張為大戶)"><div style="color:#f05a5a;font-weight:bold">大戶 +1</div><div style="color:#2fbf71">散戶 -64</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:50%;background:#f05a5a"></div></div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">1.0/8%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">趨勢↑ 5日動能↓ KD同向 RSI偏空</td></tr><tr>
   <td data-l="標的" style="white-space:nowrap"><span style="color:#f2a150;font-weight:bold">🔥</span> 台燿<br><span class="badge-tip bt-key" title="台灣摩根士丹利 +504張 / 凱基-台北 +177張">🔥指標券商10/07</span><span class="bt-detail" style="display:none">台灣摩根士丹利 +504張 / 凱基-台北 +177張</span></td><td data-l="代號">6274</td>
   <td data-l="現價" style="color:#f05a5a;font-weight:bold;background:rgba(240,90,90,.16)">▲ 1740.0 <span style="font-size:11px">+1.16%</span></td>
   <td data-l="今日高低">H=1750 L=1645<br>買1735/賣1740</td>
