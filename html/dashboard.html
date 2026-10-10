@@ -163,17 +163,20 @@ body.layout-edit .grid>.card{outline:1px dashed var(--accent);outline-offset:2px
 </div>
 </header>
 <nav class="dashnav">
-  <a href="#c-market">大盤</a><a href="#c-ds60">DS勝率60</a><a href="#c-ind">指標</a><a href="#c-quote">報價</a><a href="#c-radar">市場雷達</a><a href="#c-dtobserve">熱力榜</a><a href="#c-trades">交易紀錄</a>
+  <a href="#c-index">大盤監控</a><a href="#c-market">預測推薦</a><a href="#c-ds60">DS勝率60</a><a href="#c-ind">指標</a><a href="#c-quote">報價</a><a href="#c-radar">市場雷達</a><a href="#c-dtobserve">熱力榜</a><a href="#c-trades">交易紀錄</a>
   <button type="button" id="dash-layout-btn" title="版面配置：拖曳移動卡片、調整寬度">⚙ 版面</button>
 </nav>
 <div class="grid">
-  <div class="card" id="c-market">
+  <div class="card full" id="c-index">
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
       <tr title="訊號分級: 漲跌幅 ≥1% 強多/≥0.3% 偏多/±0.3% 中性/≤-0.3% 偏空/≤-1% 強空"><td>加權指數</td><td style="color:#2fbf71;font-weight:bold">49,313.44</td><td style="color:#2fbf71">-492.93</td><td style="color:#2fbf71">-0.99%</td><td>H=49,783 L=49,190</td><td style="color:#2fbf71;font-weight:bold">🟢 偏空</td></tr><tr><td>台指近</td><td colspan="5" style="color:#5b6472">— 券商源連線中 (08:50-13:32 強制 API)</td></tr>
     </table>
-    <div class="sub-h">大盤預測 - deepseek <span style="font-size:11px;color:#8b95a3">(08:30 LOG 2026-10-08)</span></div>
+  </div>
+  <div class="card" id="c-market">
+    <h2>大盤預測 × 當沖推薦</h2>
+    <div class="sub-h" style="margin-top:4px;padding-top:0;border-top:none">大盤預測 - deepseek <span style="font-size:11px;color:#8b95a3">(08:30 LOG 2026-10-08)</span></div>
     <div class="fc-hdr" style="margin:4px 0;line-height:1.7;font-size:12px"><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">開盤: 預估 49,400~49,750（以夜盤收 49,593 錨定，對 10/7 收盤 49,806.37 約 -406~-56 點；夜盤已反映美股收黑，估再折 0~200 點）。</div><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">方向: 🟢 偏空（開低震盪）</div></div><div style="margin:3px 0;line-height:1.6;font-size:12px"><span style="color:#5b9cf6;font-weight:bold">劇本: </span>開低走低（40%）：開 49,500 以下、連假前賣壓出籠，跌破 49,456 → 收 49,000~49,450；<br>② 開低震盪回穩（35%）：開低後買盤承接被動元件／石化／玻纖布，49,450~49,850 區間整理 → 收 49,550~49,800；<br>③ 開低走高（25%）：油價回落、美股電子盤翻紅，10:00 前站回 49,806 → 收 49,850~50,100。<br>量能：10/7 僅 9,259.92 億（連 2 日縮）；<br>連假前一日易再縮至 8,500~9,500 億，量不出則反彈無力。<br>｜關鍵位: 支撐 49,593（夜盤收）→ 49,456（夜盤低）→ 49,000；<br>壓力 49,806（昨收）→ 49,968（前高）→ 50,000（5 萬大關）。<br></div>
     <div class="sub-h">今日當沖推薦 - deepseek <span style="font-size:11px;color:#8b95a3">(2026-10-08)</span></div>
     <div style="font-size:11px;color:#8b95a3;margin:2px 0 4px">近 5 日判定: 完全成功 1 · 預測成功 10 · 預測失敗 3 · 完全失敗 1 → 方向準確率 73.3%（n=15）</div>
