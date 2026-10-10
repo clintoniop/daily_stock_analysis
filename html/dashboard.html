@@ -33,7 +33,7 @@ h1{font-size:20px;font-weight:650;letter-spacing:.2px;line-height:1.3;color:var(
 .dashnav a:hover{color:var(--text);background:var(--surface-2);border-color:var(--border)}
 .dashnav a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 /* 卡片 */
-.grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(420px,31.5%,600px);gap:14px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) var(--rcol,clamp(420px,31.5%,600px));gap:14px}
 .card{min-width:0;overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px 16px;scroll-margin-top:60px}
 .full{grid-column:1/-1}
 .card h2{font-size:15px;font-weight:600;letter-spacing:.2px;line-height:1.4;color:var(--text);padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--border)}
@@ -127,6 +127,24 @@ details.fold>summary{padding:8px 0;font-size:13px}
 .pager button{padding:6px 14px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+#dash-layout-btn{margin-left:auto;flex:none;font:inherit;font-size:13px;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:999px;padding:3px 12px;cursor:pointer}
+#dash-layout-btn:hover,#dash-layout-btn.on{color:var(--text);border-color:var(--accent);background:var(--accent-soft)}
+body.layout-edit .grid>.card{outline:1px dashed var(--accent);outline-offset:2px;cursor:move}
+.lay-tools{display:flex;gap:6px;align-items:center;margin:-4px 0 8px;font-size:12px}
+.lay-tools .lay-grip{color:var(--accent);margin-right:auto;cursor:grab;user-select:none}
+.lay-tools button{font:inherit;font-size:12px;color:var(--text-2);background:var(--surface-2);border:1px solid var(--border-strong);border-radius:6px;padding:2px 9px;cursor:pointer}
+.lay-tools button:hover{border-color:var(--accent);color:var(--text)}
+.grid>.card.lay-dragging{opacity:.4}
+.grid>.card.lay-over-before{box-shadow:0 -4px 0 0 var(--accent)}
+.grid>.card.lay-over-after{box-shadow:0 4px 0 0 var(--accent)}
+#dash-layout-panel{position:fixed;top:58px;right:16px;z-index:1000;width:310px;background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;padding:12px 14px;box-shadow:0 10px 32px rgba(0,0,0,.5);font-size:12px;color:var(--text-2)}
+#dash-layout-panel .lp-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px}
+#dash-layout-panel label{display:flex;gap:8px;align-items:center}
+#dash-layout-panel input[type=range]{flex:1;accent-color:var(--accent)}
+#dash-layout-panel .lp-hint{color:var(--muted);margin:10px 0;line-height:1.55}
+#dash-layout-panel .lp-btns{display:flex;gap:8px;justify-content:flex-end}
+#dash-layout-panel .lp-btns button{font:inherit;font-size:12px;color:var(--text-2);background:var(--surface-2);border:1px solid var(--border-strong);border-radius:6px;padding:4px 12px;cursor:pointer}
+#dash-layout-panel .lp-btns button.lp-primary{color:#fff;background:var(--accent);border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -146,6 +164,7 @@ details.fold>summary{padding:8px 0;font-size:13px}
 </header>
 <nav class="dashnav">
   <a href="#c-market">大盤</a><a href="#c-ds60">DS勝率60</a><a href="#c-ind">指標</a><a href="#c-quote">報價</a><a href="#c-radar">市場雷達</a><a href="#c-dtobserve">熱力榜</a><a href="#c-trades">交易紀錄</a>
+  <button type="button" id="dash-layout-btn" title="版面配置：拖曳移動卡片、調整寬度">⚙ 版面</button>
 </nav>
 <div class="grid">
   <div class="card" id="c-market">
@@ -257,7 +276,8 @@ details.fold>summary{padding:8px 0;font-size:13px}
     </table>
   </div>
   <div class="card full" id="c-ds60">
-    <h2>DeepSeek 勝率&gt;60% 當沖模擬 <span style="font-size:11px;color:#888">(更新 10-10 05:25)</span></h2>
+    <h2>DeepSeek 勝率&gt;60% 當沖模擬 <span style="font-size:11px;color:#888">(更新 10-10 16:35)</span></h2>
+    
     <table>
       <tr><th>期間</th><th>交易筆數</th><th>勝率（獲利筆/筆）</th><th>收益（扣費稅）</th></tr>
       <tr><td>今日 10-10</td><td>0</td><td>休市／無推薦</td><td>—</td></tr><tr><td>昨日 10-08</td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr><td>累計 08-11～10-08</td><td>15</td><td>40%（6/15）</td><td><span style="color:#2fbf71">-53,469</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 2 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1010、960→964</div></td><td>15</td><td>93%（14/15）</td><td><span style="color:#f05a5a">+29,334</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 3 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1015、960→966</div></td><td>15</td><td>93%（14/15）</td><td><span style="color:#f05a5a">+75,227</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 4 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1020、960→968</div></td><td>15</td><td>87%（13/15）</td><td><span style="color:#f05a5a">+96,179</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 5 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1025、960→970</div></td><td>15</td><td>80%（12/15）</td><td><span style="color:#f05a5a">+92,188</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 6 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1030、960→972</div></td><td>15</td><td>80%（12/15）</td><td><span style="color:#f05a5a">+106,154</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 7 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1035、960→974</div></td><td>15</td><td>73%（11/15）</td><td><span style="color:#f05a5a">+56,272</span></td></tr>
@@ -271,6 +291,46 @@ details.fold>summary{padding:8px 0;font-size:13px}
     <table>
       <tr><th>日期</th><th>標的</th><th>方向</th><th>近20次</th><th>買進區</th><th>停損</th><th>收益<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+13,510</span></div></th><th>2tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+26,479</span></div></th><th>3tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+66,386</span></div></th><th>4tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+81,352</span></div></th><th>5tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+116,269</span></div></th><th>6tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+126,244</span></div></th><th>7tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: <span style="color:#f05a5a">+106,291</span></div></th></tr>
       <tr><td>10-08</td><td>3037 欣興</td><td><span style="color:#2fbf71">做空</span></td><td>75%</td><td>1305~1325</td><td>1340</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-07</td><td>8046 南電</td><td><span style="color:#f05a5a">做多</span></td><td>65%</td><td>1470~1495</td><td>1450</td><td><span style="color:#2fbf71">-19,764</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1480 時間平倉</div></td><td><span style="color:#f05a5a">+5,178</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:13:23 @1505 達標</div></td><td><span style="color:#f05a5a">+10,166</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:14:03 @1510 達標</div></td><td><span style="color:#f05a5a">+15,154</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:14:12 @1515 達標</div></td><td><span style="color:#f05a5a">+20,142</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:16:02 @1520 達標</div></td><td><span style="color:#f05a5a">+25,130</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:16:24 @1525 達標</div></td><td><span style="color:#f05a5a">+30,119</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:12:58 @1495</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:17:24 @1530 達標</div></td></tr><tr><td>10-06</td><td>8046 南電</td><td><span style="color:#f05a5a">做多</span></td><td>65%</td><td>1455~1475</td><td>1420</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-06</td><td>6274 台燿</td><td><span style="color:#f05a5a">做多</span></td><td>77%</td><td>1705~1735</td><td>1665</td><td><span style="color:#f05a5a">+4,423</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1740 時間平倉</div></td><td><span style="color:#f05a5a">+4,423</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:03:42 @1740 達標</div></td><td><span style="color:#f05a5a">+9,411</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:03:11 @1745 達標</div></td><td><span style="color:#f05a5a">+14,400</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:03:54 @1750 達標</div></td><td><span style="color:#f05a5a">+19,388</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:14:55 @1755 達標</div></td><td><span style="color:#f05a5a">+24,376</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:17:41 @1760 達標</div></td><td><span style="color:#f05a5a">+4,423</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @1730</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1740 時間平倉</div></td></tr><tr><td>10-05</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>75%</td><td>1270~1290</td><td>1210</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-05</td><td>8046 南電</td><td><span style="color:#f05a5a">做多</span></td><td>65%</td><td>1425~1445</td><td>1385</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-05</td><td>6274 台燿</td><td><span style="color:#f05a5a">做多</span></td><td>75%</td><td>1570~1595</td><td>1520</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-02</td><td>8046 南電</td><td><span style="color:#f05a5a">做多</span></td><td>65%</td><td>1390~1410</td><td>1360</td><td><span style="color:#f05a5a">+50,344</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1465 時間平倉</div></td><td><span style="color:#f05a5a">+5,450</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:02:59 @1420 達標</div></td><td><span style="color:#f05a5a">+10,439</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:06:12 @1425 達標</div></td><td><span style="color:#f05a5a">+15,427</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:06:20 @1430 達標</div></td><td><span style="color:#f05a5a">+20,415</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:06:22 @1435 達標</div></td><td><span style="color:#f05a5a">+25,403</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:06:37 @1440 達標</div></td><td><span style="color:#f05a5a">+30,391</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:51 @1410</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:15:03 @1445 達標</div></td></tr><tr><td>10-02</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>75%</td><td>1190~1205</td><td>1165</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-02</td><td>6274 台燿</td><td><span style="color:#f05a5a">做多</span></td><td>73%</td><td>1505~1520</td><td>1475</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>10-01</td><td>6274 台燿</td><td><span style="color:#f05a5a">做多</span></td><td>70%</td><td>1490~1515</td><td>1460</td><td><span style="color:#f05a5a">+125</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1520 時間平倉</div></td><td><span style="color:#f05a5a">+5,113</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:09:04 @1525 達標</div></td><td><span style="color:#f05a5a">+10,102</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:15:05 @1530 達標</div></td><td><span style="color:#f05a5a">+15,090</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:15:12 @1535 達標</div></td><td><span style="color:#f05a5a">+20,078</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:20:51 @1540 達標</div></td><td><span style="color:#f05a5a">+125</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1520 時間平倉</div></td><td><span style="color:#f05a5a">+125</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:03:45 @1515</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1520 時間平倉</div></td></tr><tr><td>09-29</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>80%</td><td>1145~1168</td><td>1122</td><td><span style="color:#f05a5a">+6,269</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:01 @1165 時間平倉</div></td><td><span style="color:#f05a5a">+6,269</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:15:49 @1165 達標</div></td><td><span style="color:#f05a5a">+11,257</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:15:49 @1170 達標</div></td><td><span style="color:#f05a5a">+16,245</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:30:41 @1175 達標</div></td><td><span style="color:#f05a5a">+21,234</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:31:10 @1180 達標</div></td><td><span style="color:#f05a5a">+26,222</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:51:23 @1185 達標</div></td><td><span style="color:#f05a5a">+6,269</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:01 @1155</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:01 @1165 時間平倉</div></td></tr><tr><td>09-24</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>80%</td><td>1115~1140</td><td>1095</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>09-23</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>80%</td><td>1085~1108</td><td>1065</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>09-22</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>80%</td><td>1005~1022</td><td>993</td><td colspan="7" style="color:#888">未進買區</td></tr><tr><td>09-21</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>79%</td><td>1015~1028</td><td>997</td><td><span style="color:#2fbf71">-8,278</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1020 時間平倉</div></td><td><span style="color:#f05a5a">+6,686</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 10:16:20 @1035 達標</div></td><td><span style="color:#f05a5a">+11,674</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 10:44:25 @1040 達標</div></td><td><span style="color:#2fbf71">-8,278</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1020 時間平倉</div></td><td><span style="color:#2fbf71">-8,278</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1020 時間平倉</div></td><td><span style="color:#2fbf71">-8,278</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1020 時間平倉</div></td><td><span style="color:#2fbf71">-8,278</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:33:32 @1025</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @1020 時間平倉</div></td></tr><tr><td>09-17</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>78%</td><td>942~958</td><td>930</td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td><td><span style="color:#2fbf71">-11,056</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 10:25:00 @958</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:02 @950 時間平倉</div></td></tr><tr><td>09-16</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>76%</td><td>942~955</td><td>928</td><td><span style="color:#2fbf71">-73</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:03 @958 時間平倉</div></td><td><span style="color:#f05a5a">+925</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:03:42 @959 達標</div></td><td><span style="color:#f05a5a">+2,920</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:04:28 @961 達標</div></td><td><span style="color:#f05a5a">+4,916</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:04:57 @963 達標</div></td><td><span style="color:#f05a5a">+6,911</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:45:10 @965 達標</div></td><td><span style="color:#f05a5a">+8,906</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:47:10 @967 達標</div></td><td><span style="color:#f05a5a">+10,901</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:17 @955</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 11:49:22 @969 達標</div></td></tr><tr><td>09-15</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>81%</td><td>955~968</td><td>938</td><td><span style="color:#2fbf71">-9,093</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @962 時間平倉</div></td><td><span style="color:#f05a5a">+883</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:03:06 @972 達標</div></td><td><span style="color:#f05a5a">+2,879</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:03:15 @974 達標</div></td><td><span style="color:#f05a5a">+4,874</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:11:58 @976 達標</div></td><td><span style="color:#f05a5a">+6,869</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:12:19 @978 達標</div></td><td><span style="color:#f05a5a">+8,864</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:24:44 @980 達標</div></td><td><span style="color:#f05a5a">+10,860</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:48 @968</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:25:20 @982 達標</div></td></tr><tr><td>09-14</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>87%</td><td>960~975</td><td>945</td><td><span style="color:#f05a5a">+9,888</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:08 @973 時間平倉</div></td><td><span style="color:#f05a5a">+909</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:10:14 @964 達標</div></td><td><span style="color:#f05a5a">+2,904</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:27:02 @966 達標</div></td><td><span style="color:#f05a5a">+4,900</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:40:40 @968 達標</div></td><td><span style="color:#f05a5a">+6,895</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:40:51 @970 達標</div></td><td><span style="color:#f05a5a">+8,890</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:40:54 @972 達標</div></td><td><span style="color:#f05a5a">+10,885</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 11:09:50 @960</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 12:45:16 @974 達標</div></td></tr><tr><td>09-11</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>93%</td><td>970~990</td><td>950</td><td><span style="color:#f05a5a">+8,852</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 13:00:00 @984 時間平倉</div></td><td><span style="color:#f05a5a">+870</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:03:16 @976 達標</div></td><td><span style="color:#f05a5a">+2,866</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:06:18 @978 達標</div></td><td><span style="color:#f05a5a">+4,861</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:53:03 @980 達標</div></td><td><span style="color:#f05a5a">+6,856</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:53:22 @982 達標</div></td><td><span style="color:#f05a5a">+8,852</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:54:56 @984 達標</div></td><td><span style="color:#f05a5a">+10,847</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:02:00 @972</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:55:05 @986 達標</div></td></tr><tr><td>09-10</td><td>3037 欣興</td><td><span style="color:#f05a5a">做多</span></td><td>92%</td><td>985~1010</td><td>970</td><td><span style="color:#2fbf71">-18,127</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 10:16:14 @970 停損</div></td><td><span style="color:#f05a5a">+829</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:10:35 @989 達標</div></td><td><span style="color:#f05a5a">+2,824</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:10:42 @991 達標</div></td><td><span style="color:#f05a5a">+4,819</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:10:49 @993 達標</div></td><td><span style="color:#f05a5a">+6,815</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:13:47 @995 達標</div></td><td><span style="color:#f05a5a">+8,810</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:13:53 @997 達標</div></td><td><span style="color:#f05a5a">+10,805</span><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">進 09:10:09 @985</div><div style="font-size:10px;color:#8b95a3;white-space:nowrap;line-height:1.4">出 09:14:03 @999 達標</div></td></tr>
+    </table>
+    <div style="font-size:10px;color:#888;margin-top:4px">規則：近20次＝儀表板同欄四級判定（只用前一日以前）；每檔 1 張、原文買進區首次觸價進場（09:02 起、最晚 11:30）、停損／目標／13:00 平倉；每日新增倉 ≤200 萬；扣手續費 6 折＋當沖稅。觸價模擬，非實際成交保證；原文「止穩」等文字條件未判定。<br>
+    N tick：同一筆進場，順向 N tick 即出，停損／13:00 平倉不變；每 tick 1000 元以上 5 元、500～999 元 2 元、100～499 元 1 元（後兩者大於交易所跳動，另外算）。</div>
+  </div>
+  <div class="card full" id="c-astra60">
+    <h2>GPT6_Astra 勝率&gt;60% 當沖模擬 <span style="font-size:11px;color:#888">(更新 10-10 16:35)</span></h2>
+    <div style="font-size:11px;color:#e8c24a;margin:4px 0 8px">樣本不足：GPT6_Astra 各檔判定最多 4 次（需 ≥10 次且勝率 &gt;60% 才入選），目前尚無入選；每日收盤後自動累積。</div>
+    <table>
+      <tr><th>期間</th><th>交易筆數</th><th>勝率（獲利筆/筆）</th><th>收益（扣費稅）</th></tr>
+      <tr><td>今日 10-10</td><td>0</td><td>休市／無推薦</td><td>—</td></tr><tr><td>昨日 10-08</td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr><td>累計 09-24～10-08</td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 2 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1010、960→964</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 3 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1015、960→966</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 4 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1020、960→968</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 5 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1025、960→970</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 6 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1030、960→972</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 7 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1035、960→974</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr>
+    </table>
+    <div class="sub-h">今日推薦篩選（近20次勝率 &gt;60% 且 ≥10 次才做）</div>
+    <table>
+      <tr><th>標的</th><th>方向</th><th>買進區</th><th>目標</th><th>停損</th><th>近20次</th><th>決定</th></tr>
+      <tr><td colspan="7" style="text-align:center;color:#888">今日無 GPT6_Astra 當沖推薦（休市或尚未產出）</td></tr>
+    </table>
+    <div class="sub-h">近期入選明細（近一個月）</div>
+    <table>
+      <tr><th>日期</th><th>標的</th><th>方向</th><th>近20次</th><th>買進區</th><th>停損</th><th>收益<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>2tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>3tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>4tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>5tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>6tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>7tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th></tr>
+      <tr><td colspan="13" style="text-align:center;color:#888">— 尚無</td></tr>
+    </table>
+    <div style="font-size:10px;color:#888;margin-top:4px">規則：近20次＝儀表板同欄四級判定（只用前一日以前）；每檔 1 張、原文買進區首次觸價進場（09:02 起、最晚 11:30）、停損／目標／13:00 平倉；每日新增倉 ≤200 萬；扣手續費 6 折＋當沖稅。觸價模擬，非實際成交保證；原文「止穩」等文字條件未判定。<br>
+    N tick：同一筆進場，順向 N tick 即出，停損／13:00 平倉不變；每 tick 1000 元以上 5 元、500～999 元 2 元、100～499 元 1 元（後兩者大於交易所跳動，另外算）。</div>
+  </div>
+  <div class="card full" id="c-opus60">
+    <h2>Claude_Opus 勝率&gt;60% 當沖模擬 <span style="font-size:11px;color:#888">(更新 10-10 16:35)</span></h2>
+    <div style="font-size:11px;color:#e8c24a;margin:4px 0 8px">樣本不足：Claude_Opus 各檔判定最多 3 次（需 ≥10 次且勝率 &gt;60% 才入選），目前尚無入選；每日收盤後自動累積。</div>
+    <table>
+      <tr><th>期間</th><th>交易筆數</th><th>勝率（獲利筆/筆）</th><th>收益（扣費稅）</th></tr>
+      <tr><td>今日 10-10</td><td>0</td><td>休市／無推薦</td><td>—</td></tr><tr><td>昨日 10-08</td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr><td>累計 09-30～10-08</td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 2 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1010、960→964</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 3 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1015、960→966</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 4 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1020、960→968</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 5 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1025、960→970</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 6 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1030、960→972</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr><tr style="background:rgba(91,156,246,.08)"><td style="padding-left:14px">└ 7 tick 出場對照<div style="font-size:10px;color:#888">如 1000→1035、960→974</div></td><td>0</td><td>無成交</td><td><span style="color:#aaa">+0</span></td></tr>
+    </table>
+    <div class="sub-h">今日推薦篩選（近20次勝率 &gt;60% 且 ≥10 次才做）</div>
+    <table>
+      <tr><th>標的</th><th>方向</th><th>買進區</th><th>目標</th><th>停損</th><th>近20次</th><th>決定</th></tr>
+      <tr><td colspan="7" style="text-align:center;color:#888">今日無 Claude_Opus 當沖推薦（休市或尚未產出）</td></tr>
+    </table>
+    <div class="sub-h">近期入選明細（近一個月）</div>
+    <table>
+      <tr><th>日期</th><th>標的</th><th>方向</th><th>近20次</th><th>買進區</th><th>停損</th><th>收益<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>2tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>3tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>4tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>5tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>6tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th><th>7tick<div style="font-size:10px;font-weight:normal;white-space:nowrap">當前總和: —</div></th></tr>
+      <tr><td colspan="13" style="text-align:center;color:#888">— 尚無</td></tr>
     </table>
     <div style="font-size:10px;color:#888;margin-top:4px">規則：近20次＝儀表板同欄四級判定（只用前一日以前）；每檔 1 張、原文買進區首次觸價進場（09:02 起、最晚 11:30）、停損／目標／13:00 平倉；每日新增倉 ≤200 萬；扣手續費 6 折＋當沖稅。觸價模擬，非實際成交保證；原文「止穩」等文字條件未判定。<br>
     N tick：同一筆進場，順向 N tick 即出，停損／13:00 平倉不變；每 tick 1000 元以上 5 元、500～999 元 2 元、100～499 元 1 元（後兩者大於交易所跳動，另外算）。</div>
@@ -609,6 +669,162 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
   window._dashRestoreFold = restore;
 })();
 </script>
+<script id="dash-layout-js">
+(function(){
+  var KEY = 'dash_layout_v1';
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(L)); } catch (e) {} }
+  var L = load();
+  function grid(){ return document.querySelector('.grid'); }
+  function cardsOf(g){ return g ? Array.prototype.slice.call(g.querySelectorAll(':scope > .card[id]')) : []; }
+  // 依保存順序排列（輪詢也用）；保存清單沒有的新卡 → 跟在伺服器順序的前一張後面
+  window._dashOrder = function(cards){
+    var ord = L.order;
+    if (!ord || !ord.length) return cards;
+    var pos = {};
+    for (var i = 0; i < ord.length; i++) pos[ord[i]] = i;
+    var out = cards.filter(function(c){ return pos.hasOwnProperty(c.id); })
+                   .sort(function(a, b){ return pos[a.id] - pos[b.id]; });
+    cards.forEach(function(c, i){
+      if (pos.hasOwnProperty(c.id)) return;
+      var at = 0;
+      for (var j = i - 1; j >= 0; j--) { var k = out.indexOf(cards[j]); if (k >= 0) { at = k + 1; break; } }
+      out.splice(at, 0, c);
+    });
+    return out;
+  };
+  function applyWide(){
+    var w = L.wide || {};
+    cardsOf(grid()).forEach(function(c){ if (w.hasOwnProperty(c.id)) c.classList.toggle('full', !!w[c.id]); });
+  }
+  function applyCol(){
+    var g = grid();
+    if (!g) return;
+    if (L.rcol) g.style.setProperty('--rcol', L.rcol + 'px'); else g.style.removeProperty('--rcol');
+  }
+  function applyOrder(){
+    var g = grid(), cur = cardsOf(g), want = window._dashOrder(cur);
+    for (var i = 0; i < want.length; i++) if (cur[i] !== want[i]) { want.forEach(function(c){ g.appendChild(c); }); return; }
+  }
+  var _prevAfter = window._dashAfterSwap;
+  window._dashAfterSwap = function(root){ if (_prevAfter) _prevAfter(root); applyWide(); if (editing) addTools(root); };
+  applyOrder(); applyWide(); applyCol();
+
+  var editing = false, panel = null, dragEl = null;
+  window._dashEditing = false;
+  function saveOrder(){ L.order = cardsOf(grid()).map(function(c){ return c.id; }); save(); }
+  function addTools(c){
+    if (!c || !c.classList || !c.classList.contains('card') || c.querySelector(':scope > .lay-tools')) return;
+    var t = document.createElement('div');
+    t.className = 'lay-tools';
+    t.innerHTML = '<span class="lay-grip" title="按住拖曳到其他卡片上方/下方">⠿ 拖曳移動</span>'
+      + '<button type="button" data-lay="up" title="往前移">↑</button>'
+      + '<button type="button" data-lay="down" title="往後移">↓</button>'
+      + '<button type="button" data-lay="wide">' + (c.classList.contains('full') ? '改半寬' : '改整列') + '</button>';
+    c.insertBefore(t, c.firstChild);
+    c.setAttribute('draggable', 'true');
+  }
+  function removeTools(c){
+    var t = c.querySelector(':scope > .lay-tools');
+    if (t) t.remove();
+    c.removeAttribute('draggable');
+    c.classList.remove('lay-dragging', 'lay-over-before', 'lay-over-after');
+  }
+  function rightCol(){
+    var g = grid();
+    if (!g) return 520;
+    var cols = getComputedStyle(g).gridTemplateColumns.split(' ');
+    return cols.length > 1 ? Math.round(parseFloat(cols[cols.length - 1])) : 520;
+  }
+  function showPanel(){
+    if (!panel) {
+      panel = document.createElement('div');
+      panel.id = 'dash-layout-panel';
+      panel.innerHTML = '<div class="lp-title">⚙ 版面配置</div>'
+        + '<label>右欄寬度 <input type="range" id="lp-rcol" min="320" max="1100" step="10"> <span id="lp-rcol-v"></span></label>'
+        + '<div class="lp-hint">・拖曳卡片（或按 ↑↓）調整位置<br>・「改整列／改半寬」切換卡片寬度<br>'
+        + '・設定只存在這台裝置的瀏覽器；編輯中卡片內容暫停更新<br>・螢幕寬度不足時為單欄，寬度滑桿不生效</div>'
+        + '<div class="lp-btns"><button type="button" id="lp-reset">恢復預設</button>'
+        + '<button type="button" id="lp-done" class="lp-primary">完成</button></div>';
+      document.body.appendChild(panel);
+      var r = panel.querySelector('#lp-rcol'), v = panel.querySelector('#lp-rcol-v');
+      r.addEventListener('input', function(){ L.rcol = +r.value; v.textContent = r.value + 'px'; applyCol(); save(); });
+      panel.querySelector('#lp-reset').addEventListener('click', function(){
+        if (!confirm('恢復預設版面（順序、寬度全部還原）？')) return;
+        try { localStorage.removeItem(KEY); } catch (e) {}
+        location.reload();
+      });
+      panel.querySelector('#lp-done').addEventListener('click', function(){ setEdit(false); });
+    }
+    var cur = L.rcol || rightCol();
+    panel.querySelector('#lp-rcol').value = cur;
+    panel.querySelector('#lp-rcol-v').textContent = cur + 'px';
+    panel.hidden = false;
+  }
+  function setEdit(on){
+    editing = !!on;
+    window._dashEditing = editing;
+    document.body.classList.toggle('layout-edit', editing);
+    cardsOf(grid()).forEach(function(c){ editing ? addTools(c) : removeTools(c); });
+    if (editing) showPanel(); else if (panel) panel.hidden = true;
+    var b = document.getElementById('dash-layout-btn');
+    if (b) b.classList.toggle('on', editing);
+  }
+  var btn = document.getElementById('dash-layout-btn');
+  if (btn) btn.addEventListener('click', function(){ setEdit(!editing); });
+  document.addEventListener('keydown', function(e){ if (editing && e.key === 'Escape') setEdit(false); });
+  document.addEventListener('click', function(e){
+    if (!editing) return;
+    var b = e.target.closest && e.target.closest('.lay-tools button');
+    if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var c = b.closest('.card'), g = grid(), a = b.getAttribute('data-lay');
+    if (a === 'up' && c.previousElementSibling) g.insertBefore(c, c.previousElementSibling);
+    else if (a === 'down' && c.nextElementSibling) g.insertBefore(c.nextElementSibling, c);
+    else if (a === 'wide') {
+      var full = !c.classList.contains('full');
+      c.classList.toggle('full', full);
+      L.wide = L.wide || {};
+      L.wide[c.id] = full;
+      b.textContent = full ? '改半寬' : '改整列';
+    }
+    saveOrder();
+    c.scrollIntoView({block: 'nearest'});
+  }, true);
+  function clearOver(){ cardsOf(grid()).forEach(function(c){ c.classList.remove('lay-over-before', 'lay-over-after'); }); }
+  document.addEventListener('dragstart', function(e){
+    if (!editing) return;
+    var c = e.target.closest && e.target.closest('.grid > .card[id]');
+    if (!c) return;
+    dragEl = c;
+    c.classList.add('lay-dragging');
+    try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', c.id); } catch (x) {}
+  });
+  document.addEventListener('dragover', function(e){
+    if (!editing || !dragEl) return;
+    var c = e.target.closest && e.target.closest('.grid > .card[id]');
+    if (!c || c === dragEl) return;
+    e.preventDefault();
+    var r = c.getBoundingClientRect(), before = e.clientY < r.top + r.height / 2;
+    clearOver();
+    c.classList.add(before ? 'lay-over-before' : 'lay-over-after');
+  });
+  document.addEventListener('drop', function(e){
+    if (!editing || !dragEl) return;
+    var c = e.target.closest && e.target.closest('.grid > .card[id]');
+    if (!c || c === dragEl) return;
+    e.preventDefault();
+    var r = c.getBoundingClientRect(), g = grid();
+    g.insertBefore(dragEl, e.clientY < r.top + r.height / 2 ? c : c.nextElementSibling);
+    saveOrder();
+  });
+  document.addEventListener('dragend', function(){
+    if (dragEl) dragEl.classList.remove('lay-dragging');
+    dragEl = null;
+    clearOver();
+  });
+})();
+</script>
 <script>
 (function(){
   var m = document.querySelector('meta[name="rt-status"]');
@@ -674,6 +890,7 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
   document.addEventListener('mouseup', function(){ _mouseHeld = false; }, true);
   window.addEventListener('blur', function(){ _mouseHeld = false; });
   function _selHolds(node){
+    if (window._dashEditing) return true;          // 2026-10-10: 版面編輯中 → 暫停替換/重排
     if (_mouseHeld) return true;
     var s = window.getSelection ? window.getSelection() : null;
     if (!s || s.isCollapsed || !s.rangeCount) return false;
@@ -715,6 +932,7 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
       if (Number.isFinite(curMs) && freshMs < curMs) throw new Error('來源回退舊版');
       var cards = Array.prototype.slice.call(nextGrid.querySelectorAll(':scope > .card[id]'));
       if (!cards.length || cards.length !== nextGrid.querySelectorAll(':scope > .card').length) throw new Error('卡片缺穩定 id');
+      if (window._dashOrder) cards = window._dashOrder(cards);   // 2026-10-10: 依使用者自訂版面順序
       var ids = {};
       for (var i = 0; i < cards.length; i++) ids[cards[i].id] = true;
       var existing = Array.prototype.slice.call(liveGrid.querySelectorAll(':scope > .card[id]'));
