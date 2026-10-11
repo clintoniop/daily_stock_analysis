@@ -728,7 +728,9 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
   }
   TTLS = readTitles(document) || {};
   var TTL_CAN_EDIT = location.protocol === 'http:';
+  var _ttlHoldUntil = 0;
   window._dashSetTitles = function(doc){
+    if (window._dashEditing || Date.now() < _ttlHoldUntil) return;   // 剛送出／編輯中 → 不吃可能較舊的輪詢頁
     var t = readTitles(doc);
     if (!t || JSON.stringify(t) === JSON.stringify(TTLS)) return;
     TTLS = t;
@@ -775,11 +777,12 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
   var _prevAfter = window._dashAfterSwap;
   window._dashAfterSwap = function(root){ if (_prevAfter) _prevAfter(root); applyWide(); applyTitles(root); if (editing) { addTools(root); markTitles(root, true); } };
   applyOrder(); applyWide(); applyCol(); applyTitles(document);
-  function postTitles(next, done){
+  function postTitles(op, done){
+    _ttlHoldUntil = Date.now() + 4000;
     fetch('/api/dash-titles', {method: 'POST', headers: {'Content-Type': 'application/json'},
-                               body: JSON.stringify({titles: next})})
+                               body: JSON.stringify(op)})
       .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j.ok) throw new Error(j.error || ('HTTP ' + r.status)); return j; }); })
-      .then(function(j){ TTLS = j.titles || {}; applyTitles(document); if (done) done(); })
+      .then(function(j){ TTLS = j.titles || {}; _ttlHoldUntil = Date.now() + 4000; applyTitles(document); if (done) done(); })
       .catch(function(err){ alert('標題儲存失敗：' + err.message + '\n（只能在本機 8765 頁修改）'); });
   }
   document.addEventListener('click', function(e){
@@ -793,9 +796,7 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
     var v = window.prompt('改標題（留空＝還原成「' + orig + '」）', n.nodeValue.trim());
     if (v === null) return;
     v = v.trim();
-    var next = JSON.parse(JSON.stringify(TTLS || {}));
-    if (!v || v === orig) delete next[key]; else next[key] = v;
-    postTitles(next);
+    postTitles({key: key, value: (v === orig) ? '' : v});
   }, true);
 
   var editing = false, panel = null, dragEl = null;
@@ -847,7 +848,7 @@ window._dashAfterSwap = function (root) { _restoreSorts(root); _rerunPagers(root
       var tr = panel.querySelector('#lp-ttl-reset');
       if (tr) tr.addEventListener('click', function(){
         if (!confirm('所有自訂標題還原成原本名稱？（所有裝置與公開頁同步；順序、寬度不變）')) return;
-        postTitles({});
+        postTitles({reset: true});
       });
       panel.querySelector('#lp-done').addEventListener('click', function(){ setEdit(false); });
     }
