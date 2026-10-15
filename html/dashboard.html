@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-15T08:41:57.109658+08:00"><meta name="dash-build" content="cab6e97bae91">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-15T08:42:09.235004+08:00"><meta name="dash-build" content="cab6e97bae91">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -156,7 +156,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
 <header class="topbar">
 <div class="brand">
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 08:41:57</span><span id="pubclock"></span><span id="ntpoff"><span style="color:#8b95a3">｜時鐘偏差 0.09 秒</span></span>
+<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 08:42:09</span><span id="pubclock"></span><span id="ntpoff"><span style="color:#8b95a3">｜時鐘偏差 0.09 秒</span></span>
  | <span style="color:#5b6472">⛔ kill_switch: OFF (模擬)</span></div>
 </div>
 <div class="summary">
@@ -215,23 +215,31 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
 </tr></table></details>
     <div style="font-size:11px;color:#8b95a3;margin-top:4px">出自每日分析; 僅供參考 — 遵守當沖四鐵律 (不追漲停/不玩尾盤/震盪不操作/獲利市價出場)</div>
     <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(128,128,128,.35)"><div style="font-size:12px;color:#e8c24a;font-weight:bold;margin-bottom:4px">📊 前一日預測檢驗 <span style="font-weight:400;opacity:.7">(2026-10-14)</span></div><div style="font-size:12px;line-height:1.6"><div>✅ <b>2368</b> 金像電 <span style="color:#f05a5a">🔴 做多</span> → <b>預測成功</b><span style="opacity:.75"> · 未進場</span><span style="opacity:.6"> · 方向正確、達目標 1235，但沒回到買進區 1140~1165；收 1260（昨收 1170，收紅）</span></div><div>🟢✅ <b>1815</b> 富喬 <span style="color:#f05a5a">🔴 做多</span> → <b>完全成功</b><span style="opacity:.75"> · 模擬 129→137 <b style="color:#f05a5a">+5.88%</b>（達標）</span><span style="opacity:.6"> · 方向正確、碰買進區 126~129、達目標 137；收 134（昨收 130，收紅）</span></div></div><div style="opacity:.6;font-size:11px;margin-top:4px">完全成功 1 · 預測成功 1 · 預測失敗 0 · 完全失敗 0 → 方向準確率 100%</div></div>
-    <div class="sub-h sub-h-alt">大盤預測 - GPT6_Astra <span style="font-size:11px;color:#8b95a3">(2026-10-14)</span></div>
-    <div style="font-size:12px;color:#f2a150">⚠ 今日未產出：[子程序 rc=1 (0x00000001)]</div><details class="fold"><summary>前次快照（2026-10-14）大盤預測 — 非今日，僅供參考</summary><div class="fc-hdr" style="margin:4px 0;line-height:1.7;font-size:12px"><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">開盤: 預估48600~48800點，較昨收48341.31點跳空上漲約259~459點（+0.54%~+0.95%）；夜盤反彈支持開高，但不把期貨價差直接視為現貨必漲幅度。</div><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">方向: 🟡 震盪，台指期夜盤反彈與台積電ADR小漲有利跌深修復，但費半連五跌、記憶體賣壓未退，較可能開高後反覆而非全面翻多。</div></div><div style="margin:3px 0;line-height:1.6;font-size:12px"><span style="color:#5b9cf6;font-weight:bold">劇本: </span>開高先測48769附近前低反壓；<br>若前30分鐘成交金額低於昨日同時段、且站不穩48769，預期回測48341，基準收盤區間48400~48750；<br>若前30分鐘成交金額達昨日同時段1.1倍以上、上漲家數多於下跌家數且守穩48769，修正為反彈延伸，收盤看48800~49000；<br>若放量跌破48066且無法收復，反彈劇本失效，收盤風險區間47800~48066；<br>上述量能倍數是今日觸發條件，不是已發生的成交量。<br>｜關鍵位: 支撐48341／48066／48000；<br>壓力48769／49000／49126</div></details>
-    <div class="sub-h sub-h-alt">今日當沖推薦 - GPT6_Astra <span style="font-size:11px;color:#8b95a3">(2026-10-14)</span></div>
+    <div class="sub-h sub-h-alt">大盤預測 - GPT6_Astra <span style="font-size:11px;color:#8b95a3">(2026-10-15)</span></div>
+    <div class="fc-hdr" style="margin:4px 0;line-height:1.7;font-size:12px"><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">開盤: 預估 47650~48050 點，向下跳空約 576~976 點、約 -1.18%~-2.01%（相對昨收 48625.83；為模型預估，非即時試撮）。</div><div style="color:#5b9cf6;font-weight:bold;padding:1px 0">方向: 🟢 偏空（費半下跌 4.30%、台指期夜盤下跌 1.75%，今晨日韓科技股續弱，昨日本土資金輪動不足以抵銷外部賣壓）。</div></div><div style="margin:3px 0;line-height:1.6;font-size:12px"><span style="color:#5b9cf6;font-weight:bold">劇本: </span>主情境為跳空下跌後反彈受壓，48066 為 10/13 前低，跌破後轉為反壓；<br>若開盤前 30 分鐘成交金額達昨日同時段 1.2 倍以上且無法站回 48066，預估續測 47632、47500，收盤落在 47500~48050；<br>若跌破 47500 且量能持續擴大，下修風險區至 47000~47500；<br>若下跌縮量、日韓跌幅收斂且站回 48341，偏空劇本失效，改看 48341~48626 收盤；<br>量能倍數是判斷條件，不是已發生事實。<br>｜關鍵位: 支撐 47632／47500／47000；<br>壓力 48066／48341／48626</div>
+    <div class="sub-h sub-h-alt">今日當沖推薦 - GPT6_Astra <span style="font-size:11px;color:#8b95a3">(2026-10-15)</span></div>
     <div style="font-size:11px;color:#8b95a3;margin:2px 0 4px">近 5 日判定: 完全成功 2 · 預測成功 6 · 預測失敗 1 · 完全失敗 0 → 方向準確率 88.9%（n=9）</div><div style="font-size:11px;color:#8b95a3;margin:2px 0 4px">開盤後口徑（09:02→13:00，09/24 起累計）：當沖 47%（9/19） · 照抄夜盤 44%（8/18）｜大盤 3/7 · 照抄夜盤 3/7</div><div style="font-size:11px;color:#8b95a3;margin:2px 0 4px">出報率（近12交易日）11/12；缺 10/13（缺報不計入準確率）</div>
     <table>
       <tr><th>#</th><th>標的</th><th>方向</th><th>買進區</th><th>目標</th><th>停損</th><th>近20次</th><th>理由</th></tr>
-      <tr><td colspan="8" style="text-align:center;color:#f2a150">⚠ 今日未產出：[子程序 rc=1 (0x00000001)]</td></tr>
-    </table>
-    <details class="fold"><summary>前次快照（2026-10-14）當沖推薦 — 非今日，勿當今日操作</summary><table><tr><th>#</th><th>標的</th><th>方向</th><th>買進區</th><th>目標</th><th>停損</th><th>近20次</th><th>理由</th></tr><tr>
+      <tr>
   <td>#1</td><td>2344 華邦電</td>
   <td style="color:#2fbf71">做空</td>
-  <td>164~165</td>
-  <td>159.5</td>
-  <td>166.5</td>
+  <td>162~164</td>
+  <td>158</td>
+  <td>165.5</td>
   <td style="font-size:12px;color:#8b95a3;white-space:nowrap" title="近4次：完全成功 0／預測成功 3／預測失敗 1／完全失敗 0（樣本少於 10 次，僅供參考）">75% <span style="font-size:11px;color:#8b95a3">(3/4)</span><span style="font-size:11px;color:#8b95a3"> 樣本少</span></td>
-  <td class="rsn-cell"><div class="rsn">震盪日僅押反彈遇壓，昨收161.50、跌7.18%，成交量124198390股為前日2.68倍，本地外資與投信合計賣超65.1億元，加上美光跌3.62%，等待164.00~165.00反彈失敗再空，風險是夜盤轉強引發軋空，不在低檔追空。</div></td>
-</tr></table></details>
+  <td class="rsn-cell"><div class="rsn">昨收 165.00、昨高低 167.50／160.00，反彈成交量僅前日 45.6%，隔日沖券商淨買超 6785 張且 flush_flag=true，配合費半重挫及記憶體族群承壓，採反彈無力轉弱做空，不在急殺低點追空。</div></td>
+</tr><tr>
+  <td>#2</td><td>3037 欣興</td>
+  <td style="color:#2fbf71">做空</td>
+  <td>1145~1160</td>
+  <td>1125</td>
+  <td>1170</td>
+  <td style="font-size:12px;color:#8b95a3;white-space:nowrap" title="近4次：完全成功 2／預測成功 2／預測失敗 0／完全失敗 0（樣本少於 10 次，僅供參考）">100% <span style="font-size:11px;color:#8b95a3">(4/4)</span><span style="font-size:11px;color:#8b95a3"> 樣本少</span></td>
+  <td class="rsn-cell"><div class="rsn">昨收 1185.00、昨低 1140.00，主動 ETF 淨減碼 6.3 億元、隔日沖券商淨買超 1266 張且 flush_flag=true，預期外盤衝擊下回測昨低；</div><div class="rsn">只在區間內反彈轉弱進場，目標價差小於昨日 55.00 元振幅，但跌破昨低屬預測而非既成事實。</div></td>
+</tr>
+    </table>
+    
     <div style="font-size:11px;color:#8b95a3;margin-top:4px">GPT6_Astra（gpt-6-astra / openai-codex）盤前預測；僅供模型準確性對照，非交易指令</div>
     <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(128,128,128,.35)"><div style="font-size:12px;color:#e8c24a;font-weight:bold;margin-bottom:4px">📊 前一日預測檢驗 <span style="font-weight:400;opacity:.7">(2026-10-14)</span></div><div style="font-size:12px;line-height:1.6"><div>⚠️ <b>2344</b> 華邦電 <span style="color:#2fbf71">🟢 做空</span> → <b>預測失敗</b><span style="opacity:.75"> · 模擬 164→166.5 <b style="color:#2fbf71">-1.85%</b>（停損）</span><span style="opacity:.6"> · 方向錯誤（收紅），盤中碰買進區 164~165、未達目標 159.5；收 165（昨收 161.5，收紅）</span></div></div><div style="opacity:.6;font-size:11px;margin-top:4px">完全成功 0 · 預測成功 0 · 預測失敗 1 · 完全失敗 0 → 方向準確率 0%</div></div>
     <div class="sub-h sub-h-alt">大盤預測 - Claude_Opus <span style="font-size:11px;color:#8b95a3">(2026-10-15)</span></div>
