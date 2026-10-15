@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-15T13:30:20.271257+08:00"><meta name="dash-build" content="cab6e97bae91">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="live"><meta name="rt-updated-at" content="2026-10-15T13:30:31.526397+08:00"><meta name="dash-build" content="cab6e97bae91">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -156,7 +156,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
 <header class="topbar">
 <div class="brand">
 <h1>模擬交易儀錶板 — V7</h1>
-<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:30:20</span><span id="pubclock"></span><span id="ntpoff"><span style="color:#8b95a3">｜時鐘偏差 0.01 秒</span></span>
+<div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 13:30:31</span><span id="pubclock"></span><span id="ntpoff"><span style="color:#8b95a3">｜時鐘偏差 0.01 秒</span></span>
  | <span style="color:#5b6472">⛔ kill_switch: OFF (模擬)</span></div>
 </div>
 <div class="summary">
@@ -175,7 +175,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
     <h2>大盤監控</h2>
     <table>
       <tr><th>指標</th><th>現價</th><th>漲跌</th><th>漲跌%</th><th>今日高低</th><th>訊號</th></tr>
-      <tr title="訊號分級: 漲跌幅 ≥1% 強多/≥0.3% 偏多/±0.3% 中性/≤-0.3% 偏空/≤-1% 強空"><td>加權指數</td><td style="color:#2fbf71;font-weight:bold">46,965.97</td><td style="color:#2fbf71">-1,659.86</td><td style="color:#2fbf71">-3.41%</td><td>H=48,383 L=46,795</td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#2fbf71;font-weight:bold">47,029</td><td style="color:#2fbf71">-1,769</td><td style="color:#2fbf71">-3.63%</td><td>H=47,720 L=47,007 量=67,480口<br><span style="font-size:11px;color:#8b95a3"> 正價差 63 (期貨強)</span></td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr>
+      <tr title="訊號分級: 漲跌幅 ≥1% 強多/≥0.3% 偏多/±0.3% 中性/≤-0.3% 偏空/≤-1% 強空"><td>加權指數</td><td style="color:#2fbf71;font-weight:bold">46,965.97</td><td style="color:#2fbf71">-1,659.86</td><td style="color:#2fbf71">-3.41%</td><td>H=48,383 L=46,795</td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr><tr><td>台指近 (臺指近全)</td><td style="color:#2fbf71;font-weight:bold">47,019</td><td style="color:#2fbf71">-1,779</td><td style="color:#2fbf71">-3.65%</td><td>H=47,720 L=47,007 量=67,698口<br><span style="font-size:11px;color:#8b95a3"> 正價差 53 (期貨強)</span></td><td style="color:#2fbf71;font-weight:bold">🟢 強空</td></tr>
     </table>
   </div>
   <div class="card" id="c-market">
@@ -404,10 +404,12 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
   <td data-l="現價" style="color:#2fbf71;font-weight:bold;background:rgba(47,191,113,.16)">▼ 1155.0 <span style="font-size:11px">-2.53%</span></td>
   <td data-l="今日高低">H=1180 L=1150<br>買1155/賣1160</td>
   <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買71張/賣244張；散戶 買208張/賣242張 (單筆≥10張為大戶)"><div style="color:#2fbf71;font-weight:bold">大戶 -173</div><div style="color:#2fbf71">散戶 -34</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:23%;background:#2fbf71"></div></div></td><td data-l="量能/VWAP" class="qm-cell" title="量比＝截至標示時間累積張數／前20交易日同時段均量（至少5日）；不含未完成分鐘。VWAP＝券商累積成交值÷累積股數；t為交易所tick，非進出場信號。"><div>量比 0.95×</div><div>近5分 10張 · 13:25</div><div>VWAP 1161.52 <span style="color:#2fbf71">約-1.3t</span></div></td><td data-l="流動性/成本" class="qm-cell" title="五檔只收當日獨立事件時間、10秒內；缺資料不估價差/成本。"><div>價差 —</div><div>五檔未就緒／已過期</div><div>成本 —</div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">0.8/2%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">5日動能↑ KD反向 RSI偏多</td>
-</tr><tr title="無即時報價, 顯示昨日收盤"><td data-l="標的" style="white-space:nowrap"><span style="font-size:11px;color:#8b95a3;border:1px solid #303946;border-radius:4px;padding:0 4px;margin-right:4px;font-weight:normal">生技</span><span style="color:#f2a150;font-weight:bold">🔥</span> 藥華藥<br><span class="badge-tip bt-key" title="摩根大通 +82張 / 台灣摩根士丹利 +27張">🔥指標券商10/14</span><span class="bt-detail" style="display:none">摩根大通 +82張 / 台灣摩根士丹利 +27張</span></td><td data-l="代號">6446</td>
-  <td data-l="現價" style="color:#f05a5a;font-weight:bold">1190.0 <span style="font-size:11px">+2.15%</span></td>
-  <td data-l="今日高低" style="color:#5b6472">H=1195 L=1155<br>買—/賣—</td>
-  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買650張/賣313張；散戶 買1,054張/賣870張 (單筆≥10張為大戶)"><div style="color:#f05a5a;font-weight:bold">大戶 +337</div><div style="color:#f05a5a">散戶 +184</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:67%;background:#f05a5a"></div></div></td><td data-l="量能/VWAP" class="qm-cell" title="量比＝截至標示時間累積張數／前20交易日同時段均量（至少5日）；不含未完成分鐘。VWAP＝券商累積成交值÷累積股數；t為交易所tick，非進出場信號。"><div>量比 — 待盤中</div><div>歷史 20 日</div><div>VWAP —</div></td><td data-l="流動性/成本" class="qm-cell" title="五檔只收當日獨立事件時間、10秒內；缺資料不估價差/成本。"><div>價差 —</div><div>五檔未就緒／已過期</div><div>成本 —</div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">-1.4/11%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">趨勢↑ 5日動能↓ KD反向</td></tr><tr>
+</tr><tr>
+  <td data-l="標的" style="white-space:nowrap"><span style="font-size:11px;color:#8b95a3;border:1px solid #303946;border-radius:4px;padding:0 4px;margin-right:4px;font-weight:normal">生技</span><span style="color:#f2a150;font-weight:bold">🔥</span> 藥華藥<br><span class="badge-tip bt-key" title="摩根大通 +82張 / 台灣摩根士丹利 +27張">🔥指標券商10/14</span><span class="bt-detail" style="display:none">摩根大通 +82張 / 台灣摩根士丹利 +27張</span></td><td data-l="代號">6446</td>
+  <td data-l="現價" style="color:#f05a5a;font-weight:bold;background:rgba(240,90,90,.16)">▲ 1205.0 <span style="font-size:11px">+1.26%</span></td>
+  <td data-l="今日高低">H=1240 L=1180<br>買1205/賣1210</td>
+  <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買650張/賣527張；散戶 買1,054張/賣870張 (單筆≥10張為大戶)"><div style="color:#f05a5a;font-weight:bold">大戶 +123</div><div style="color:#f05a5a">散戶 +184</div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:55%;background:#f05a5a"></div></div></td><td data-l="量能/VWAP" class="qm-cell" title="量比＝截至標示時間累積張數／前20交易日同時段均量（至少5日）；不含未完成分鐘。VWAP＝券商累積成交值÷累積股數；t為交易所tick，非進出場信號。"><div>量比 1.60×</div><div>近5分 57張 · 13:25</div><div>VWAP 1211.46 <span style="color:#2fbf71">約-1.3t</span></div></td><td data-l="流動性/成本" class="qm-cell" title="五檔只收當日獨立事件時間、10秒內；缺資料不估價差/成本。"><div>價差 —</div><div>五檔未就緒／已過期</div><div>成本 —</div></td><td data-l="方向" style="color:#7c8594;white-space:nowrap">觀望 <span style="font-size:11px;color:#8b95a3">-1.4/11%</span></td><td data-l="原因" style="font-size:11px;color:#8b95a3">趨勢↑ 5日動能↓ KD反向</td>
+</tr><tr>
   <td data-l="標的" style="white-space:nowrap"><span style="font-size:11px;color:#8b95a3;border:1px solid #303946;border-radius:4px;padding:0 4px;margin-right:4px;font-weight:normal">矽晶圓</span><span style="color:#f2a150;font-weight:bold">🔥</span> 環球晶<br><span class="badge-tip bt-next" title="港商野村 +224張 / 新加坡商瑞銀 +152張 / 凱基-台北 +97張">⚡隔日衝10/14</span><span class="bt-detail" style="display:none">港商野村 +224張 / 新加坡商瑞銀 +152張 / 凱基-台北 +97張</span><br><span class="badge-tip bt-key" title="美商高盛 +864張 / 台灣摩根士丹利 +395張 / 元大證券 +234張">🔥指標券商10/14</span><span class="bt-detail" style="display:none">美商高盛 +864張 / 台灣摩根士丹利 +395張 / 元大證券 +234張</span></td><td data-l="代號">6488</td>
   <td data-l="現價" style="color:#fff;font-weight:bold;background:#1f7a4a">▼ 923.0 <span style="font-size:11px">-9.51%</span><br> <span style="background:#e8c24a;color:#0c0f14;font-weight:bold;border-radius:3px;padding:0 4px">跌停</span></td>
   <td data-l="今日高低">H=980 L=918<br>買923/賣924</td>
