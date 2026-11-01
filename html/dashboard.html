@@ -4,7 +4,7 @@
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
-:root{--bg:#0c0f14;--surface:#12161d;--surface-2:#171c24;--surface-3:#1d232d;--border:#252c37;--border-strong:#303946;--text:#e6e9ef;--text-2:#c3cad5;--muted:#8b95a3;--faint:#5b6472;--accent:#5b9cf6;--accent-soft:rgba(91,156,246,.14);--up:#f05a5a;--down:#2fbf71;--warn:#e8c24a;--orange:#f2a150;--violet:#b39afd;--teal:#3fb7a4;--radius:10px;--radius-sm:6px;--font:"Segoe UI Variable Text","Segoe UI","Microsoft JhengHei UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",system-ui,sans-serif;--mono:"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;color-scheme:dark}
+:root{--bg:#0c0f14;--surface:#12161d;--surface-2:#171c24;--surface-3:#1d232d;--border:#252c37;--border-strong:#303946;--text:#e6e9ef;--text-2:#c3cad5;--muted:#8b95a3;--faint:#808a99;--accent:#5b9cf6;--accent-soft:rgba(91,156,246,.14);--up:#f05a5a;--down:#2fbf71;--warn:#e8c24a;--orange:#f2a150;--violet:#b39afd;--teal:#3fb7a4;--radius:10px;--radius-sm:6px;--font:"Segoe UI Variable Text","Segoe UI","Microsoft JhengHei UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",system-ui,sans-serif;--mono:"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:60px}
 body{font-family:var(--font);font-size:13px;line-height:1.5;background:var(--bg);color:var(--text);max-width:1800px;margin:0 auto;padding:20px 20px 40px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
@@ -280,8 +280,8 @@ details.fold>summary{padding:8px 0;font-size:13px}
 #c-flow .cf-band.in::before{background-image:radial-gradient(circle at 50% 50%,rgba(255,236,236,.95) 0 1px,transparent 1.8px)}
 #c-flow .cf-band.out::before{background-image:radial-gradient(circle at 50% 50%,rgba(226,255,238,.95) 0 1px,transparent 1.8px);animation-name:cf-run-l}
 #c-flow .cf-band::after{content:"";position:absolute;top:50%;width:calc(var(--th,4px) + 3px);height:calc(var(--th,4px) + 3px);border-radius:50%}
-#c-flow .cf-band.in::after{right:0;transform:translate(50%,-50%);background:#f05a5a;box-shadow:0 0 8px 1px rgba(240,90,90,.75)}
-#c-flow .cf-band.out::after{left:0;transform:translate(-50%,-50%);background:#2fbf71;box-shadow:0 0 8px 1px rgba(47,191,113,.75)}
+#c-flow .cf-band.in::after{right:0;transform:translate(50%,-50%);background:#f05a5a}
+#c-flow .cf-band.out::after{left:0;transform:translate(-50%,-50%);background:#2fbf71}
 #c-flow .cf-band.z::before,#c-flow .cf-band.z::after{display:none}
 @keyframes cf-run-r{from{background-position:0 50%}to{background-position:16px 50%}}
 @keyframes cf-run-l{from{background-position:0 50%}to{background-position:-16px 50%}}
@@ -341,7 +341,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
 <div class="brand">
 <h1>模擬交易儀錶板 — V7</h1>
 <div class="header"><span id="nowclock">現在: --:--:--</span>　<span id="clock">更新: 10/30 13:32:02</span><span id="pubclock">｜夜間更新 資金流向 10/31 09:34</span><span id="ntpoff"><span style="color:#8b95a3">｜時鐘偏差 0.17 秒</span></span>
- | <span style="color:#5b6472">⛔ kill_switch: OFF (模擬)</span></div>
+ | <span style="color:#808a99">⛔ kill_switch: OFF (模擬)</span></div>
 </div>
 <div class="summary">
   <div class="metric"><div class="val">0</div><div class="lbl">總交易</div></div>
@@ -529,7 +529,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
   <td data-l="現價" style="color:#fff;font-weight:bold;background:#1f7a4a">▼ 1335.00 <span style="font-size:11px">-9.80%</span><br> <span style="background:#e8c24a;color:#0c0f14;font-weight:bold;border-radius:3px;padding:0 4px">跌停</span><div class="qbar" title="跌停 1335.00｜今日 1335.00～1395.00｜昨收 1480.00｜漲停 1625.00"><i class="qb-rng" style="left:0.0%;width:20.7%"></i><i class="qb-ref" style="left:50.0%"></i><i class="qb-px down" style="left:0.0%"></i></div></td>
   <td data-l="今日高低"><span class="qhl"><span class="qn">H 1395.00</span> · <span class="qn">L 1335.00</span></span><br><span class="qhl-bs">買 0.00 / 賣 1335.00</span></td>
   <td data-l="大戶" style="font-size:11px;line-height:1.5" title="大戶 買691張/賣9,753張；散戶 買1,628張/賣6,192張 (單筆≥10張為大戶)"><div><span style="color:#2fbf71;font-weight:bold;white-space:nowrap">大戶 -9,062</span> <span style="color:#2fbf71;white-space:nowrap">散戶 -4,564</span></div><div style="height:4px;background:#252c37;border-radius:2px;overflow:hidden"><div style="height:4px;width:7%;background:#2fbf71"></div></div><div style="font-size:11px;color:#8b95a3;font-weight:normal">成交已過115秒</div></td><td data-l="方向" style="color:#2fbf71"><span><span style="white-space:nowrap">🟢 做空 -9.8% 缺口</span> <span style="font-size:11px;color:#8b95a3;white-space:nowrap">-2.4/55%</span></span><div><a class="qreco down" href="#dr-results_opus-2026-10-30-1-2308" data-dr="dr-results_opus-2026-10-30-1-2308" title="點一下跳到推薦卡這一列">Opus 做空</a></div></td><td data-l="原因" style="font-size:11px;color:#8b95a3">缺口覆寫: 做空 (原做空) 趨勢↓ 5日動能↓ KD同向 RSI偏多</td>
-</tr><tr class="qx" data-for="2308" hidden><td colspan="7"><div class="qx-grid"><div><h5>券商買超（盤後資料）</h5><div class="qx-bk-key"><b>🔥指標券商10/29</b> 台灣摩根士丹利 +13張</div></div><div class="qm-cell" title="量比＝截至標示時間累積張數／前20交易日同時段均量（至少5日）；不含未完成分鐘。VWAP＝券商累積成交值÷累積股數；t為交易所tick，非進出場信號。"><h5>量能/VWAP</h5><div>量比 — 待盤中</div><div>歷史 20 日</div><div>VWAP —</div></div><div class="qm-cell" title="五檔只收當日獨立事件時間、10秒內；缺資料不估價差/成本。"><h5>流動性/成本</h5><div>價差 —</div><div>五檔未就緒／已過期</div><div>成本 —</div></div></div></td></tr><tr><td colspan="7" style="border:none;padding-top:6px"><div class="sig-note" style="border:1px solid #252c37;border-radius:8px;padding:8px 10px;background:#171c24;font-size:11px;line-height:1.6;color:#8b95a3"><div>點標的前的 ▸ 展開：券商名單、量能/VWAP、流動性/成本（觀察資訊，不改交易信號）；同時段量比用前20交易日（至少5日）。成本為一張多單、手續費依投資帳本（台銀實收 0.0498%），同日當沖稅；未含滑價/最低費/借券費。懸停流動性欄可看五檔明細。</div><div>方向已套用今日盤中跳空（執行視角，當沖推薦標的無動能守衛），數字旁為盤中漲跌% ； 技術分數/信心：昨日收盤後日線計算（盤中不變）。</div><div style="margin-top:4px;padding-top:4px;border-top:1px dashed #252c37;color:#5b6472">解說 — <b>KD</b> = 隨機指標 (短線強弱，K&gt;D 偏多 / K&lt;D 偏空)；<b>RSI</b> = 相對強弱指標 (近期漲跌力道，&gt;70 過熱 / &lt;30 超賣)；<b>5日動能</b> = 近 5 日累積漲跌動能；<b>趨勢</b> = 均線方向；<b>缺口</b> = 開盤價跳離昨收 (跳空)；<b>缺口覆寫</b> = 跳空方向直接覆寫原技術信號方向 (例：原做多 → 改做空)。</div></div></td></tr></tbody>
+</tr><tr class="qx" data-for="2308" hidden><td colspan="7"><div class="qx-grid"><div><h5>券商買超（盤後資料）</h5><div class="qx-bk-key"><b>🔥指標券商10/29</b> 台灣摩根士丹利 +13張</div></div><div class="qm-cell" title="量比＝截至標示時間累積張數／前20交易日同時段均量（至少5日）；不含未完成分鐘。VWAP＝券商累積成交值÷累積股數；t為交易所tick，非進出場信號。"><h5>量能/VWAP</h5><div>量比 — 待盤中</div><div>歷史 20 日</div><div>VWAP —</div></div><div class="qm-cell" title="五檔只收當日獨立事件時間、10秒內；缺資料不估價差/成本。"><h5>流動性/成本</h5><div>價差 —</div><div>五檔未就緒／已過期</div><div>成本 —</div></div></div></td></tr><tr><td colspan="7" style="border:none;padding-top:6px"><div class="sig-note" style="border:1px solid #252c37;border-radius:8px;padding:8px 10px;background:#171c24;font-size:11px;line-height:1.6;color:#8b95a3"><div>點標的前的 ▸ 展開：券商名單、量能/VWAP、流動性/成本（觀察資訊，不改交易信號）；同時段量比用前20交易日（至少5日）。成本為一張多單、手續費依投資帳本（台銀實收 0.0498%），同日當沖稅；未含滑價/最低費/借券費。懸停流動性欄可看五檔明細。</div><div>方向已套用今日盤中跳空（執行視角，當沖推薦標的無動能守衛），數字旁為盤中漲跌% ； 技術分數/信心：昨日收盤後日線計算（盤中不變）。</div><div style="margin-top:4px;padding-top:4px;border-top:1px dashed #252c37;color:#808a99">解說 — <b>KD</b> = 隨機指標 (短線強弱，K&gt;D 偏多 / K&lt;D 偏空)；<b>RSI</b> = 相對強弱指標 (近期漲跌力道，&gt;70 過熱 / &lt;30 超賣)；<b>5日動能</b> = 近 5 日累積漲跌動能；<b>趨勢</b> = 均線方向；<b>缺口</b> = 開盤價跳離昨收 (跳空)；<b>缺口覆寫</b> = 跳空方向直接覆寫原技術信號方向 (例：原做多 → 改做空)。</div></div></td></tr></tbody>
     </table>
     <details class="fold" id="q-extra"><summary class="sec-sum">其他關注 18 檔（持股／今日三模型推薦／資金流向帶頭；只顯示，不進交易判定）</summary><table class="qtable" style="table-layout:fixed"><thead><tr><th style="width:19%">標的</th><th style="width:5%">代號</th><th style="width:14%">現價 (漲跌%)</th><th style="width:12%">今日高低/買賣</th><th style="width:11%">大戶買賣力</th><th style="width:15%">推薦</th><th style="width:24%">列入原因</th></tr></thead><tbody><tr class="qr" data-code="00981A" data-px="26.66" data-live="1">
   <td data-l="標的"><button type="button" class="qx-tg" data-qx="00981A" aria-expanded="false" title="展開／收起：券商名單、量能/VWAP、流動性/成本">▸</button><span class="qnm">主動統一台股增長</span></td><td data-l="代號">00981A</td>
@@ -736,7 +736,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
     <h2>即時持倉</h2>
     <table>
       <tr><th>標的</th><th>代號</th><th>方向</th><th>進場</th><th>現價</th><th>浮動</th></tr>
-      <tr><td colspan="6" style="text-align:center;color:#5b6472">無持倉</td></tr>
+      <tr><td colspan="6" style="text-align:center;color:#808a99">無持倉</td></tr>
     </table>
   </div>
   <div class="card full" id="c-trades">
@@ -744,7 +744,7 @@ body.layout-edit .ttl-edit:hover{color:var(--accent)}
     <div class="sec-h">① 規則交易</div>
     <table style="table-layout:fixed">
       <tr><th data-pg="pg-rule" data-ps="10">日期</th><th data-pg="pg-rule" data-ps="10">進場</th><th data-pg="pg-rule" data-ps="10">出場</th><th data-pg="pg-rule" data-ps="10">標的</th><th data-pg="pg-rule" data-ps="10">做多/做空</th><th data-pg="pg-rule" data-ps="10">價格</th><th data-pg="pg-rule" data-ps="10">損益</th><th data-pg="pg-rule" data-ps="10">原因</th></tr>
-      <tr><td colspan="7" style="text-align:center;color:#5b6472">無規則交易</td></tr>
+      <tr><td colspan="7" style="text-align:center;color:#808a99">無規則交易</td></tr>
     </table>
     
     <div class="sec-h">② B 組無trail <span class="meta">(與放寬引擎同進場、唯一差異拆掉移動止盈 — 受控 A/B 對照)</span> <span class="meta meta-strong"> — 今日 37 筆, 勝率 20/37 = 54.1%, 淨 +8,840</span></div>
