@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done"><meta name="rt-updated-at" content="2026-11-13T13:32:02.331146+08:00"><meta name="dash-build" content="6dd661dfe246">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done"><meta name="rt-updated-at" content="2026-11-13T13:32:02.331146+08:00"><meta name="dash-build" content="81674ca60ac4">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -1902,8 +1902,12 @@ function _mobileSort(root) {
   // V8.63b: 公開頁 (github.io) 改抓 raw.githubusercontent — 直讀 gh-pages 分支檔案,
   // 免等 GitHub Pages 重建 (~30-90s), 引擎推送後 ~5-15s 即可見; ?t= 每次唯一防快取。
   // 本地維持原路徑；raw 連續失敗 3 次暫退 Pages，30 秒後自動重試。
+  // 2026-11-15（用戶選 B）：raw 分支網址快取 300 秒、?t= 已破不了（實測推送後 253 秒才看得到）→ 先抓 Cloudflare 轉送
+  //   （projects/dash-relay：git info/refs 取 gh-pages 最新 commit 再抓 commit 網址）；連續失敗 3 次退回 raw，60 秒後再試轉送。
+  var _relayBase = null, _relayFails = 0, _relayRetryAt = 0;
   var _rawBase = null;
   if (/(^|\.)github\.io$/.test(location.hostname)) {
+    _relayBase = 'https://dash-relay.wbond-2344-daily-500337.workers.dev/dashboard.html';
     _rawBase = 'https://raw.githubusercontent.com/clintoniop/daily_stock_analysis/gh-pages/html/dashboard.html';
     ms = 10000;   // 2026-11-08：引擎 10 秒才推一次 gh-pages，公開頁每秒抓整頁（約 83KB）九成是同一份
   }
@@ -1983,8 +1987,9 @@ function _mobileSort(root) {
     if (_pollBusy) return;
     _pollBusy = true;
     var gen = ++_pollGen;
-    var useRaw = !!_rawBase && Date.now() >= _rawRetryAt;
-    var _u = useRaw ? (_rawBase + '?t=' + Date.now()) : location.href;
+    var useRelay = !!_relayBase && Date.now() >= _relayRetryAt;
+    var useRaw = !useRelay && !!_rawBase && Date.now() >= _rawRetryAt;
+    var _u = useRelay ? _relayBase : useRaw ? (_rawBase + '?t=' + Date.now()) : location.href;
     var ctl = (typeof AbortController === 'function') ? new AbortController() : null;
     var kill = setTimeout(function(){             // 8 秒沒回應 → 中止並釋放，下一輪照常（不再永遠卡住）
       if (gen !== _pollGen) return;
@@ -2058,10 +2063,12 @@ function _mobileSort(root) {
       var nb = doc.querySelector('meta[name="dash-build"]');
       if (nb && _myBuild && nb.content && nb.content !== _myBuild) _showBuild(nb.content);
       _fails = 0; _lastOk = Date.now();
+      if (useRelay) { _relayFails = 0; _relayRetryAt = 0; }
       if (useRaw) { _rawFails = 0; _rawRetryAt = 0; }
     }).catch(function(){
       if (gen !== _pollGen) return;
       _fails++;
+      if (useRelay && ++_relayFails >= 3) { _relayFails = 0; _relayRetryAt = Date.now() + 60000; }
       if (useRaw && ++_rawFails >= 3) { _rawFails = 0; _rawRetryAt = Date.now() + 30000; }
     }).finally(function(){
       if (gen !== _pollGen) return;
