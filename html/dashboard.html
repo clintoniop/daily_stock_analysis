@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done"><meta name="rt-updated-at" content="2026-11-16T13:32:02.947660+08:00"><meta name="dash-build" content="81674ca60ac4">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="rt-status" content="done"><meta name="rt-updated-at" content="2026-11-16T13:32:02.947660+08:00"><meta name="dash-build" content="32965372af1f">
 <title>模擬交易儀錶板 — V7</title>
 <meta name="dash-theme" content="v2">
 <style>
@@ -1727,7 +1727,8 @@ function _mobileSort(root) {
   if (/(^|\.)github\.io$/.test(location.hostname)) {
     _relayBase = 'https://dash-relay.wbond-2344-daily-500337.workers.dev/dashboard.html';
     _rawBase = 'https://raw.githubusercontent.com/clintoniop/daily_stock_analysis/gh-pages/html/dashboard.html';
-    ms = 10000;   // 2026-11-08：引擎 10 秒才推一次 gh-pages，公開頁每秒抓整頁（約 83KB）九成是同一份
+    ms = 3000;    // 2026-11-16 用戶選 2：改走轉送站後盤中每 3 秒（原 10 秒；引擎約 11 秒推一次，平均等待 5→1.5 秒）；盤後仍 10 秒
+                 //   代價：手機整頁約 83KB，盤中開著每天約 450MB（原 135MB）
   }
   var _rawFails = 0;
   var _rawRetryAt = 0;
